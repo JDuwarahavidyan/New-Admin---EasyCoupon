@@ -1,0 +1,43 @@
+.userList {
+    flex: 6;
+    height: 83.5vh;
+  }
+  
+  .userListUser {
+    display: flex;
+    align-items: center;
+  }
+  
+  .userListImg {
+    margin-right: 10px;
+  }
+  
+  .userListEdit{
+      border: none;
+      border-radius: 10px;
+      padding: 5px 10px;
+      background-color: #206892;
+      color: white;
+      cursor: pointer;
+      margin-right: 20px;
+  }
+  
+  .userListDelete{
+      color: rgb(212, 59, 59);
+      cursor: pointer;
+      
+  }
+.searchInput{
+   margin-top: 5px !important;
+   width: 200px !important;
+   height: auto;
+}
+
+.createButton{
+  margin-right: 10px !important;
+}
+
+.userListEdit:hover {
+  background-color: #3f9ab5; /* Change background to primary color on hover */
+  color: white; /* Change text color to white on hover */
+}

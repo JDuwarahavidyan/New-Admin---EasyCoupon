@@ -1,0 +1,88 @@
+.userList {
+    flex: 6;
+    height: 82vh;
+    position: relative;
+  }
+  
+  .userListUser {
+    display: flex;
+    align-items: center;
+  }
+  
+  .userListImg {
+    margin-right: 10px;
+  }
+  
+  .userListEdit{
+      border: none;
+      border-radius: 10px;
+      padding: 5px 10px;
+      background-color: #206892;
+      color: white;
+      cursor: pointer;
+      margin-right: 20px;
+  }
+  
+  .userListDelete{
+      color: rgb(212, 59, 59);
+      cursor: pointer;
+      
+  }
+.searchInput{
+   margin-top: 5px !important;
+   width: 200px !important;
+   height: auto;
+}
+
+.createButton{
+  margin-right: 10px !important;
+}
+
+.userListEdit:hover {
+  background-color: #3f9ab5; /* Change background to primary color on hover */
+  color: white; /* Change text color to white on hover */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.totalCouponsUsed {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.dateRangePicker {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-right: 20px;
+  
+}
+
+.searchBox {
+  display: flex;
+  align-items:end;
+  margin-right: 10px;
+}
+
+.loadingBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
+}
+
+.footer{
+  z-index: 99;
+}

@@ -1,0 +1,50 @@
+.sidebar {
+    flex: 1; /*givig side bar a value here side bar is one unit and other content are 4 units*/
+    height: calc(100vh - 75px);
+    background-color: #e5f0ff;
+    position: sticky;
+    top: 75px;
+}
+
+.sidebarWrapper{
+    padding: 20px;
+    color: #555;
+    
+}
+
+
+.sidebarMenu{
+    margin-bottom: 10px;
+}
+
+.sidebarTitle{
+    font-size: 15px;
+    color: rgb(19, 91, 124);
+    font-weight: 700;
+   
+}
+
+
+.sidebarList{
+    list-style: none;
+    padding: 5px;
+}
+
+.sidebarListItem{
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.sidebarListItem.active,
+.sidebarListItem:hover{
+    background-color: rgb(194, 204, 247);
+}
+
+.sidebarIcon{
+    margin-right: 10px;
+    font-size: 20px !important;
+
+}

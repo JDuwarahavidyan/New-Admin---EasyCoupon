@@ -1,0 +1,71 @@
+.topbar{
+    width: 100%;
+    height: 75px;
+    background-color: #e6f1fd;
+    position: sticky;
+    top: 0; /*to fix the top while scrolling*/
+    z-index: 999; /*other components won't overlap with this*/
+    margin-bottom: -20px !important;
+}
+
+.topbarWrapper{
+    height: 100%;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    font-weight: bold;
+    font-size: 30px;
+    color: #294B29;
+    cursor: pointer;
+}
+
+.topRight{
+    display: flex;
+    align-items: center;
+
+}
+
+
+.topbarIconContainer{
+    cursor: pointer;
+    position: relative;
+    margin-right: 15px;
+   
+}
+
+.topAvatar{
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+.profile {
+    position: relative;
+}
+
+.profile .options {
+    display: none;
+    background-color: rgb(200, 220, 243);
+    border-radius: 5px;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.profile span {
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none !important;
+    color: black;
+}
+
+.profile:hover .options {
+    display: flex;
+
+}
