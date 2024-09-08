@@ -6,7 +6,7 @@
 .pnp.js
 service_account.json
 .env
-/functions
+/functions//node_modules
 
 
 # testing
