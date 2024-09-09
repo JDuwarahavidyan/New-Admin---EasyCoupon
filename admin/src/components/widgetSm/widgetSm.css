@@ -66,3 +66,54 @@
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a slight overlay */
 }
+
+/* Media query to reduce spacing on smaller screens */
+@media (max-width: 768px) {
+    .widgetSm {
+        padding: 15px;
+    }
+
+    .widgetSmListItem {
+        margin: 15px 0;
+    }
+
+    .widgetSmUser {
+        margin-left: -50px; /* Reduce the left margin */
+    }
+
+    .widgetSmImg {
+        margin-left: 10px; /* Reduce space between image and text */
+    }
+
+    .widgetSmButton {
+        padding: 5px 10px; /* Reduce button padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .widgetSm {
+        padding: 10px;
+    }
+
+    .widgetSmListItem {
+        margin: 10px 0;
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    .widgetSmUser {
+        margin-left: 0; /* Remove left margin */
+        margin-top: 10px;
+    }
+
+    .widgetSmButton {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .widgetSmImg {
+        margin-left: 0; /* Remove margin for image */
+        width: 40px;
+        height: 40px; /* Reduce image size for smaller screens */
+    }
+}

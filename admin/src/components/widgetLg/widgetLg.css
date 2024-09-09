@@ -3,34 +3,34 @@
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   padding: 20px;
-  
-  
 }
-.container{
+
+.container {
   margin-top: 20px;
+
 }
+
 .widgetLgTitle {
   font-size: 22px;
   font-weight: 600;
 }
 
-.widgetLgTable{
+.widgetLgTable {
   margin-top: 10px;
+  min-width: 650px;
 }
 
-.widgetLgTh{
+.widgetLgTh {
   font-weight: 600 !important;
-  
 }
 
-.widgetLgUser{
+.widgetLgUser {
   display: flex !important;
   align-items: center;
   font-weight: 600;
-
 }
 
-.widgetLgName{
+.widgetLgName {
   font-weight: 600 !important;
 }
 
@@ -38,7 +38,7 @@
   margin-right: 10px !important;
 }
 
-.widgetLgDate,.widgetLgAmount{
+.widgetLgDate, .widgetLgAmount {
   font-weight: 300 !important;
 }
 
@@ -48,30 +48,60 @@
   border-radius: 10px;
 }
 
-.widgetLgButton.Approved{
-    background-color: #e5faf2;
-    color: #3bb077;
+.widgetLgButton.Approved {
+  background-color: #e5faf2;
+  color: #3bb077;
 }
-.widgetLgButton.Declined{
-    background-color: #fff0f1;
-    color: #d95087;
 
+.widgetLgButton.Declined {
+  background-color: #fff0f1;
+  color: #d95087;
 }
-.widgetLgButton.Pending{
-    background-color: #ebf1fe;
-    color: #2a7ade;
 
+.widgetLgButton.Pending {
+  background-color: #ebf1fe;
+  color: #2a7ade;
 }
 
 .loadingContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; /* Full height of the widgetLg container */
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a slight overlay */
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+@media screen and (max-width: 768px) {
+  .widgetLgTitle {
+    font-size: 20px;
+  }
+
+  .widgetLgTable {
+    font-size: 14px;
+  }
+
+  .widgetLgButton {
+    padding: 4px 6px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .widgetLgTitle {
+    font-size: 18px;
+  }
+
+  .widgetLgTable {
+    font-size: 12px;
+  }
+
+  .widgetLgButton {
+    padding: 3px 5px;
+    font-size: 10px;
+  }
 }

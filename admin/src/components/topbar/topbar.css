@@ -4,6 +4,8 @@
     height: 75px;
     background-color: #e6f1fd;
     position: sticky;
+    top:0;
+    left:0;
     top: 0;
     z-index: 999;
     margin-bottom: -20px !important;
@@ -11,6 +13,7 @@
   
   .topbarWrapper {
     height: 100%;
+    width:100%;
     padding: 0px 20px;
     display: flex;
     align-items: center;
@@ -22,6 +25,7 @@
     font-size: 30px;
     color: #294B29;
     cursor: pointer;
+    white-space:nowrap;
   }
   
   .topRight {
@@ -61,6 +65,7 @@
     cursor: pointer;
     text-decoration: none !important;
     color: black;
+    white-space:nowrap;
   }
   
   .profile:hover .options {

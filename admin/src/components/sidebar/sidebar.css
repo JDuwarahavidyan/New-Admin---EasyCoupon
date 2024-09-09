@@ -11,6 +11,8 @@
 }
 
 .sidebarWrapper {
+  height: 100%;
+  width:100%;
   padding: 20px;
   color: #555;
 }
@@ -41,6 +43,7 @@
 .sidebarListItem.active,
 .sidebarListItem:hover {
   background-color: rgb(194, 204, 247);
+  width:100px;
 }
 
 .sidebarIcon {
@@ -64,7 +67,7 @@
 }
 
 /* For very small screens (mobile) */
-@media (max-width: 576px) {
+@media (max-width: 640px) {
   .sidebar {
       width: 100px;   /* Minimal sidebar width, only show icons */
   }
