@@ -2,6 +2,7 @@
     flex: 6;
     margin-left: 20px;
     margin-top: 20px;
+    padding-top: 60px;
 }
 
 .newUserForm {
@@ -9,6 +10,11 @@
   flex-wrap: wrap;
   margin-top: 10px;
   margin-left: 100px;
+}
+
+.newUserTitle {
+  margin-left: 80px;
+  display: flex;
 }
 
 .newUserItem {
@@ -118,4 +124,43 @@
   font-size: 14px;
   font-weight: 400;
   color: rgb(151, 150, 150);
+}
+
+@media (max-width: 768px) {
+  .newUser {
+      padding-top: 80px; /* Add more space on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .newUser {
+      padding-top: 100px; /* Add even more space on very small screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .newUserForm {
+      margin-left: 20px; /* Reduce left margin */
+  }
+
+  .newUserItem {
+      width: 100%; /* Make form items take full width */
+      margin-right: 0; /* Remove right margin */
+  }
+}
+
+@media (max-width: 480px) {
+  .newUserForm {
+      margin-left: 10px;
+  }
+
+  .newUserItem {
+      width: 100%; /* Full width on very small screens */
+      margin-right: 0;
+      margin-top: 10px;
+  }
+
+  .newUserButton {
+      width: 100%; /* Button takes full width */
+  }
 }

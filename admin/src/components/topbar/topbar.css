@@ -74,6 +74,11 @@
   
   /* Media query for smaller screens */
   @media (max-width: 768px) {
+
+    .topbar {
+      position: fixed;
+
+    }
    
     .topbarWrapper {
       padding: 0px 10px;
@@ -94,6 +99,12 @@
   }
   
   @media (max-width: 576px) {
+
+    .topbar {
+      position: fixed;
+      
+    }
+   
   
     .topbarIconContainer, .topAvatar {
       margin-right: 0; /* Reduce the margin between icons */

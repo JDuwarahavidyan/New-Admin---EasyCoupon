@@ -62,7 +62,7 @@
 /* For smaller screens (tablets) */
 @media (max-width: 768px) {
   .sidebar {
-      width: 100px;  /* Make the sidebar thinner for smaller screens */
+      width: 150px;  /* Make the sidebar thinner for smaller screens */
   }
 }
 
@@ -70,6 +70,11 @@
 @media (max-width: 640px) {
   .sidebar {
       width: 100px;   /* Minimal sidebar width, only show icons */
+  }
+
+  .sidebarListItem:hover {
+    background-color: rgb(194, 204, 247);
+    width:40px;
   }
 
   .sidebarTitle {
