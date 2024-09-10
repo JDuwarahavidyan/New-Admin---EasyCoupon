@@ -59,21 +59,17 @@
   }
 
   /* Make tabs scrollable */
-  .MuiTabs-root {
-    max-width: 60%;
+  /* .MuiTabs-root {
+    max-width: 10%;
     overflow-x: auto;
-  }
+  } */
 
-  /* Adjust search and create button layout */
-  .MuiBox-root .MuiBox-root {
-    flex-direction: column;
-    align-items: stretch;
-    margin-top: 10px;
-  }
 
   .searchInput {
     width: 60% !important;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px; /* Add space below search input */
+
   }
 
   .createButton {
