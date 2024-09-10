@@ -1,19 +1,50 @@
-.home{
-    flex: 6;
+.home {
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-top: 20px;
 }
 
-.homeWidgets{
-    display: flex;
-    margin: 20px;
+.homeWidgets {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  gap: 20px;
 }
 
 .chart {
-  height: 400px; /* Set a specific height */
+  height: 400px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 10px;
 }
 
 .loadingContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .homeWidgets {
+      flex-direction: column;
+      margin: 10px;
+  }
+
+  .chart {
+      height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homeWidgets {
+      margin: 10px;
+  }
+
+  .chart {
+      height: 250px;
+  }
 }

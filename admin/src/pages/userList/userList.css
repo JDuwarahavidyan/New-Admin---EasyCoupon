@@ -1,6 +1,9 @@
 .userList {
     flex: 6;
-    height: 83.5vh;
+    height: calc(100vh - 75px); /* Subtract topbar height */
+    overflow-y: auto; /* Allow vertical scrolling */
+    padding: 20px;
+    box-sizing: border-box;
   }
   
   .userListUser {
@@ -40,4 +43,60 @@
 .userListEdit:hover {
   background-color: #3f9ab5; /* Change background to primary color on hover */
   color: white; /* Change text color to white on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .userList {
+    padding: 10px;
+    margin-top: 75px; /* Add top margin to account for fixed topbar */
+  }
+
+  /* Adjust the layout of the top section */
+  .MuiBox-root {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Make tabs scrollable */
+  /* .MuiTabs-root {
+    max-width: 10%;
+    overflow-x: auto;
+  } */
+
+
+  .searchInput {
+    width: 60% !important;
+    margin-top: 10px;
+    margin-bottom: 10px; /* Add space below search input */
+
+  }
+
+  .createButton {
+    width: 100%;
+    margin-right: 5px !important;
+    margin-top: 10px;
+  }
+
+  /* Adjust DataGrid for smaller screens */
+  .MuiDataGrid-root {
+    height: calc(100vh - 200px); /* Adjust height to fit screen */
+  }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+  .userList {
+    padding: 5px;
+  }
+
+  .MuiDataGrid-root {
+    font-size: 12px; /* Reduce font size for better fit */
+  }
+
+  /* Hide less important columns on very small screens */
+  .MuiDataGrid-columnHeader[data-field="email"],
+  .MuiDataGrid-cell[data-field="email"] {
+    display: none;
+  }
 }
