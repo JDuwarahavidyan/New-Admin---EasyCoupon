@@ -9,6 +9,7 @@
     top: 0;
     z-index: 999;
     margin-bottom: -20px !important;
+    overflow: hidden; /* Prevents overflow */
   }
   
   .topbarWrapper {
@@ -31,6 +32,7 @@
   .topRight {
     display: flex;
     align-items: center;
+    margin-right: 20px; /* Adds space between elements and screen edge */
   }
   
   .topbarIconContainer {
@@ -55,9 +57,11 @@
     flex-direction: column;
     position: absolute;
     top: 100%;
+    max-width: 150px; /* Set max-width to prevent overflow */
     right: 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
+    z-index: 1000; /* Ensure dropdown is on top */
   }
   
   .profile span {
@@ -87,6 +91,7 @@
   
     .topRight {
       gap: 10px;
+      margin-right: 10px; /* Adjust margin for smaller screens */
     }
   
     .topbarIconContainer {
@@ -94,7 +99,8 @@
     }
   
     .profile .options {
-      width: 100px; /* Reduce options dropdown width */
+      right: 10px; /* Ensure it doesn't go off the screen */
+      width: auto; /* Allow the dropdown to shrink if needed */
     }
   }
   
