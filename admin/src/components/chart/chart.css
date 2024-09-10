@@ -23,11 +23,9 @@
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
     .chart {
-        margin: 5px;
-        padding: 10px;
-        min-width: 280px;
+        display:none;
     }
 
     .chartTitle {

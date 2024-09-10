@@ -67,10 +67,12 @@
 }
 
 /* For very small screens (mobile) */
-@media (max-width: 640px) {
+@media (max-width: 500px) {
   .sidebar {
       width: 100px;   /* Minimal sidebar width, only show icons */
+      
   }
+  .sidebarTitle{font-size: 10px;}
 
   .sidebarListItem:hover {
     background-color: rgb(194, 204, 247);

@@ -48,6 +48,7 @@
   
   .profile {
     position: relative;
+    z-index: 1000;
   }
   
   .profile .options {
@@ -61,7 +62,7 @@
     right: 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
-    z-index: 1000; /* Ensure dropdown is on top */
+    z-index: 999; /* Ensure dropdown is on top */
   }
   
   .profile span {
@@ -104,20 +105,25 @@
     }
   }
   
-  @media (max-width: 576px) {
+  @media (max-width: 500px) {
 
     .topbar {
       position: fixed;
       
     }
-   
+    .logo{
+      font-size: 20px;
+    }
+    .topRight {
+      gap: 10px;
+      margin-right: 10px; /* Adjust margin for smaller screens */
+      
+    }
   
     .topbarIconContainer, .topAvatar {
       margin-right: 0; /* Reduce the margin between icons */
     }
   
-    .profile {
-      display: none; /* Optionally hide the profile dropdown */
-    }
+  
   }
   

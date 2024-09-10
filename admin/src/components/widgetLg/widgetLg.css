@@ -76,9 +76,10 @@
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .widgetLgTitle {
     font-size: 20px;
+    width:300px;
   }
 
   .widgetLgTable {
@@ -92,16 +93,44 @@
 }
 
 @media screen and (max-width: 480px) {
-  .widgetLgTitle {
-    font-size: 18px;
-  }
-
   .widgetLgTable {
-    font-size: 12px;
+    display: block; /* Change table to block layout */
   }
 
+  .widgetLg{
+    width:200px;
+  }
+
+  .widgetLgTable thead {
+    display: none; /* Hide table headers */
+  }
+
+  .widgetLgTable tbody {
+    display: block; /* Display tbody as a block */
+  }
+
+  .widgetLgTable tr {
+    display: block; /* Make each row a block */
+    margin-bottom: 10px; /* Add spacing between rows */
+  }
+
+  .widgetLgTable td {
+    display: flex; /* Flex to align label and data */
+    padding: 10px 0;
+    font-size: 12px;
+    border-bottom: 1px solid #ddd; /* Optional: for better separation */
+  }
+
+  .widgetLgTable td::before {
+    content: attr(data-label); /* Use data-label to show the header label */
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  /* Button adjustments */
   .widgetLgButton {
     padding: 3px 5px;
     font-size: 10px;
   }
-}
+  }

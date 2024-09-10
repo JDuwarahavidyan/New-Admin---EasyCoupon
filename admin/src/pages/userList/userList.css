@@ -1,7 +1,7 @@
 .userList {
     flex: 6;
     height: calc(100vh - 75px); /* Subtract topbar height */
-    overflow-y: auto; /* Allow vertical scrolling */
+    /* overflow-y: auto; Allow vertical scrolling */
     padding: 20px;
     box-sizing: border-box;
   }
@@ -51,18 +51,6 @@
     padding: 10px;
     margin-top: 75px; /* Add top margin to account for fixed topbar */
   }
-
-  /* Adjust the layout of the top section */
-  .MuiBox-root {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  /* Make tabs scrollable */
-  /* .MuiTabs-root {
-    max-width: 10%;
-    overflow-x: auto;
-  } */
 
 
   .searchInput {
