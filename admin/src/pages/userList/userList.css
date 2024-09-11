@@ -34,9 +34,11 @@
    margin-top: 5px !important;
    width: 200px !important;
    height: auto;
+   margin-right: 10px !important;
 }
 
 .createButton{
+  margin-top: 10px !important;
   margin-right: 10px !important;
 }
 
@@ -45,13 +47,22 @@
   color: white; /* Change text color to white on hover */
 }
 
+
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .userList {
     padding: 10px;
     margin-top: 75px; /* Add top margin to account for fixed topbar */
+    height: calc(100vh - 75px); 
+    overflow: hidden;
   }
 
+  .MuiDataGrid-root {
+    height: 100%; /* Make the table height relative to its container */
+    max-height: 100%; /* Ensure table stays within bounds */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    overflow-y: auto; /* Enable vertical scrolling for the table content */
+  }
 
   .searchInput {
     width: 60% !important;
@@ -76,8 +87,34 @@
 @media (max-width: 480px) {
   .userList {
     padding: 5px;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  
+  .searchInput,
+  .createButton {
+      width: 50% !important; /* Full width for smaller screens */
+      margin-top: 10px;
+      margin-bottom: 5px 0;
+      
   }
 
+  .MuiTab-root {
+    font-size: 10px; /* Even smaller font */
+    min-width: 70px; /* Narrower tabs */
+    padding: 8px 10px; /* Add padding for better touch interaction */
+  }
+
+  /* Stack tabs vertically for better mobile usability */
+  .MuiTabs-root {
+    flex-direction: column;
+  }
+
+  /* Ensure the tabs don't disappear */
+  .MuiTabs-flexContainer {
+    flex-wrap: nowrap; /* Ensure no wrapping */
+  }
+ 
   .MuiDataGrid-root {
     font-size: 12px; /* Reduce font size for better fit */
   }

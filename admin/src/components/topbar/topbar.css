@@ -9,7 +9,7 @@
     top: 0;
     z-index: 999;
     margin-bottom: -20px !important;
-    overflow: hidden; /* Prevents overflow */
+    overflow: visible; /* Prevents overflow */
   }
   
   .topbarWrapper {
@@ -62,7 +62,8 @@
     right: 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
-    z-index: 999; /* Ensure dropdown is on top */
+    z-index: 1001; /* Ensure dropdown is on top */
+    min-width: 120px;
   }
   
   .profile span {
@@ -82,7 +83,7 @@
 
     .topbar {
       position: fixed;
-
+      overflow: visible;
     }
    
     .topbarWrapper {
@@ -109,7 +110,7 @@
 
     .topbar {
       position: fixed;
-      
+      overflow: visible;
     }
     .logo{
       font-size: 20px;
@@ -117,7 +118,6 @@
     .topRight {
       gap: 10px;
       margin-right: 10px; /* Adjust margin for smaller screens */
-      
     }
   
     .topbarIconContainer, .topAvatar {

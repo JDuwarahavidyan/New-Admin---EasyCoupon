@@ -16,7 +16,7 @@
 .chart {
   height: 400px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   margin-top: 10px;
 }
@@ -27,6 +27,23 @@
   align-items: center;
   height: 100vh;
 }
+@media (max-width: 1500px) {
+  .homeWidgets {
+      flex-direction: column;
+      margin: 10px;
+      width:800px;
+  }
+
+  .chart {
+      height: 300px;
+      width: 1200px;
+  }
+}
+
+
+
+
+
 
 @media (max-width: 1024px) {
   .homeWidgets {
@@ -42,28 +59,12 @@
 }
 
 @media (max-width: 480px) {
-  /* .homeWidgets {
+  .homeWidgets {
       margin: 10px;
       width: 200px;
-  } */
+  }
   .home {
     margin: 10px;
     width: 200px;
-}
-}
-@media (max-width: 1500px) {
-  /* .homeWidgets {
-      margin: 10px;
-      width: 200px;
-  } */
-
-  .chart {
-    height: 300px;
-    width: 1200px;
-}
-  .home {
-    margin: 10px;
-    width: 200px;
-    
 }
 }

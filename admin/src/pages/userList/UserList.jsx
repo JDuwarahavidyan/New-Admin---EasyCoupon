@@ -181,36 +181,40 @@ export default function UserList() {
   return (
     <div className="userList">
       <Box display="flex" justifyContent="space-between" mb={2}>
-        <Tabs value={roleFilter} onChange={handleTabChange} aria-label="user role filter">
+        <Tabs value={roleFilter} onChange={handleTabChange} aria-label="user role filter"
+          variant="scrollable" // Make the tabs scrollable
+          scrollButtons="auto" // Automatically show the arrows when tabs overflow
+          allowScrollButtonsMobile // Ensures arrows show on mobile when needed
+          TabIndicatorProps={{
+            style: { backgroundColor: '#206892' }, // Customize the tab indicator color
+          }}>
           <Tab label="All" value="all" />
           <Tab label="Student" value="student" />
           <Tab label="Canteen" value="canteen" />
           <Tab label="Admin" value="admin" />
         </Tabs>
 
-        <Box display="flex" alignItems="center">
-          <TextField
-            variant="outlined"
-            placeholder="Search users..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="searchInput"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-            style={{ marginRight: '16px', width: '300px' }} // Adjust width and margin as needed
-          />
-          <Link to="/newUser">
-            <Button className="createButton" variant="contained" color="primary">
-              Create
-            </Button>
-          </Link>
-        </Box>
-
+        <Box className="userListControls">
+    
+    <TextField
+      variant="outlined"
+      placeholder="Search users..."
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      className="searchInput"
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <SearchIcon />
+          </InputAdornment>
+        ),
+      }}
+    /><Link to="/newUser">
+    <Button className="createButton" variant="contained" color="primary">
+      Create
+    </Button>
+  </Link>
+  </Box>
       </Box>
 
       {loading ? (

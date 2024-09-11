@@ -120,7 +120,13 @@ export default function QrCodeList() {
   return (
     <div className="userList">
       <Box className="header">
-        <Tabs value={roleFilter} onChange={handleTabChange} aria-label="user role filter">
+        <Tabs value={roleFilter} onChange={handleTabChange} aria-label="user role filter"
+        variant="scrollable" // Make the tabs scrollable
+        scrollButtons="auto" // Automatically show the arrows when tabs overflow
+        allowScrollButtonsMobile // Ensures arrows show on mobile when needed
+        TabIndicatorProps={{
+          style: { backgroundColor: '#206892' }, // Customize the tab indicator color
+        }}>
           <Tab label="All" value="all" />
           <Tab label="Canteen A (Kalderama)" value="canteena" />
           <Tab label="Canteen B (Hilton)" value="canteenb" />
