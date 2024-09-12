@@ -127,8 +127,15 @@
 }
 
 @media (max-width: 768px) {
+
+  .internewuser{
+    margin-top: -100px;
+    padding-top: -200px;
+  }
+
+
   .newUser {
-      padding-top: 80px; /* Add more space on smaller screens */
+      margin-top: 200px; /* Add more space on smaller screens */
   }
 }
 
@@ -152,6 +159,7 @@
 @media (max-width: 480px) {
   .newUserForm {
       margin-left: 10px;
+      width: 200px;
   }
 
   .newUserItem {
@@ -159,8 +167,13 @@
       margin-right: 0;
       margin-top: 10px;
   }
-
+  .fileUpload bulkUser {
+    margin-top:10px;
+  }
+  .fileUpload{
+    display:block;
+  }
   .newUserButton {
-      width: 100%; /* Button takes full width */
+      width: 200px; /* Button takes full width */
   }
 }
