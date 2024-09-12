@@ -12,7 +12,7 @@
     font-size: 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .chart {
         margin: 10px;
         padding: 15px;
@@ -23,11 +23,9 @@
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
     .chart {
-        margin: 5px;
-        padding: 10px;
-        min-width: 280px;
+        display:none;
     }
 
     .chartTitle {

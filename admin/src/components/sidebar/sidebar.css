@@ -5,14 +5,16 @@
   background-color: #e5f0ff;
   position: sticky;
   top: 75px;
-  width: 250px; /* Set a fixed width */
-  transition: width 0.3s ease; /* Smooth transition when collapsing */
-  z-index: 2;   
+  width: 250px;
+  /* Set a fixed width */
+  transition: width 0.3s ease;
+  /* Smooth transition when collapsing */
+  z-index: 2;
 }
 
 .sidebarWrapper {
   height: 100%;
-  width:100%;
+  width: 100%;
   padding: 20px;
   color: #555;
 }
@@ -43,47 +45,59 @@
 .sidebarListItem.active,
 .sidebarListItem:hover {
   background-color: rgb(194, 204, 247);
-  width:100px;
+  width: 80px;
 }
 
 .sidebarIcon {
   margin-right: 10px;
-  font-size: 20px !important;
+  font-size: 16px !important;
 }
+
 /* Media Queries for Responsive Design */
 
 /* For screens wider than 1200px */
 @media (min-width: 1200px) {
   .sidebar {
-      width: 250px;  /* Slightly wider for larger screens */
+    width: 250px;
+    /* Slightly wider for larger screens */
   }
 }
 
 /* For smaller screens (tablets) */
 @media (max-width: 768px) {
   .sidebar {
-      width: 150px;  /* Make the sidebar thinner for smaller screens */
+    width: 150px;
+    /* Make the sidebar thinner for smaller screens */
   }
 }
 
 /* For very small screens (mobile) */
-@media (max-width: 640px) {
+@media (max-width: 500px) {
   .sidebar {
-      width: 100px;   /* Minimal sidebar width, only show icons */
+    width: 100px;
+    /* Minimal sidebar width, only show icons */
+
+  }
+
+  .sidebarTitle {
+    font-size: 10px;
   }
 
   .sidebarListItem:hover {
     background-color: rgb(194, 204, 247);
-    width:40px;
+    width: 40px;
   }
 
   .sidebarTitle {
-    text-align: left; /* Align text to the left */
-    line-height: 1.2; /* Reduce line spacing */
-    margin-bottom: 5px; /* Optional: Adjust bottom margin for extra spacing control */
+    text-align: left;
+    /* Align text to the left */
+    line-height: 1.2;
+    /* Reduce line spacing */
+    margin-bottom: 5px;
+    /* Optional: Adjust bottom margin for extra spacing control */
   }
 
-  .sidebarList{
-    font-size:0px;
+  .sidebarList {
+    font-size: 0px;
   }
 }

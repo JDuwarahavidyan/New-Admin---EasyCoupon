@@ -86,3 +86,107 @@
 .footer{
   z-index: 99;
 }
+
+@media (max-width: 1024px) {
+  .userList {
+    padding: 10px;
+    margin-top: 75px; /* Add top margin for fixed topbar */
+    height: calc(100vh - 75px); 
+    overflow: hidden;
+  }
+
+  .MuiDataGrid-root {
+    height: 100%; /* Make the table height relative to its container */
+    max-height: 100%; /* Ensure table stays within bounds */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    overflow-y: auto; /* Enable vertical scrolling for the table content */
+  }
+
+  .searchInput {
+    width: 60% !important;
+    margin-top: 10px;
+    margin-bottom: 10px; /* Add space below search input */
+  }
+
+  /* Adjust DataGrid for smaller screens */
+  .MuiDataGrid-root {
+    height: calc(100vh - 200px); /* Adjust height to fit screen */
+  }
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .userList {
+    padding: 10px;
+    height: calc(100vh - 100px); /* Adjust height for smaller screens */
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .totalCouponsUsed {
+    margin-right: 0;
+    justify-content: flex-start;
+  }
+
+  .dateRangePicker {
+    margin-right: 0;
+  }
+
+  .searchBox {
+    width: 100%;
+  }
+}
+
+/* Further adjustments for very small screens (less than 480px) */
+@media (max-width: 480px) {
+  .userList {
+    padding: 5px;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  .searchBox {
+    width: 40%;
+  }
+  .searchInput {
+    width: 100% !important;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .dateRangePicker {
+    margin-right: 10px;
+    width:30%;
+  }
+
+  .MuiTab-root {
+    width: 30%;
+  }
+
+  /* Stack tabs vertically for better mobile usability */
+  .MuiTabs-root {
+    flex-direction: column;
+  }
+
+  /* Ensure the tabs don't disappear */
+  .MuiTabs-flexContainer {
+    flex-wrap: nowrap; /* Ensure no wrapping */
+  }
+
+  .createButton {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .MuiDataGrid-root {
+    font-size: 12px; /* Reduce font size for better fit */
+  }
+
+  /* Hide less important columns on very small screens */
+  .MuiDataGrid-columnHeader[data-field="email"],
+  .MuiDataGrid-cell[data-field="email"] {
+    display: none;
+  }
+}

@@ -67,7 +67,7 @@
     background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a slight overlay */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .widgetSmListItem {
         margin: 15px 0;
         flex-direction: row; /* Ensure row layout on tablets */
@@ -89,6 +89,12 @@
 }
 
 @media (max-width: 480px) {
+    .widgetSm{
+        width:250px;
+    }
+
+
+
     .widgetSmListItem {
         flex-direction: column; /* Stack items vertically on small screens */
         align-items: flex-start;
