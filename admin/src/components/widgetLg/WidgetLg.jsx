@@ -69,7 +69,7 @@ export default function WidgetLg() {
           </TableHead>
           <TableBody>
             {users.slice(0, 4).map((user) => (
-              <TableRow className="widgetLgTr" key={user._id}>
+              <TableRow className="widgetLgTr" key={user.id}>
                 <TableCell className="widgetLgUser" component="th" scope="row">
                   <Stack direction="row" spacing={2}>
                     <Avatar className="widgetLgImg" alt={user.userName} src={user.profilePic || "https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"} />
@@ -77,8 +77,8 @@ export default function WidgetLg() {
                   <span className="widgetLgName">{user.userName}</span>
                 </TableCell>
                 <TableCell className="widgetLgStatus"><Button props={user.email} /></TableCell>
-                <TableCell className="widgetLgDate">{new Date(user.createdAt).toLocaleDateString()}</TableCell>
-                <TableCell className="widgetLgDate">{new Date(user.updatedAt).toLocaleDateString()}</TableCell>
+                <TableCell className="widgetLgDate">{new Date(user.createdAt.seconds*1000).toLocaleDateString()}</TableCell>
+                <TableCell className="widgetLgDate">{new Date(user.updatedAt.seconds*1000).toLocaleDateString()}</TableCell>
               </TableRow>
             ))}
           </TableBody>

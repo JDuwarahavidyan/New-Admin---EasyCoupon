@@ -10,6 +10,7 @@ import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
 import QrCodeList from "./pages/qrcodeList/QrCodeList";
+import PwReset from "./pages/pwReset/PwReset";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -17,9 +18,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={!user ? <Login /> : <Navigate to="/home" />} />
+        {/* Show Login page first */}
+        <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
 
-        {user && (
+        {/* Redirect to PwReset page if isFirstTime */}
+        {user && user.isFirstTime && <Route path="/pwreset" element={<PwReset />} />}
+        
+        {/* Redirect to Home if user exists and not first time */}
+        {user && !user.isFirstTime && (
           <Route
             path="/*"
             element={
@@ -28,14 +34,11 @@ function App() {
                 <div className="container">
                   <Sidebar />
                   <Routes>
-                    <Route exact path="/home" element={<Home />} />
-                    
+                    <Route exact path="/" element={<Home />} />
                     <Route path="/users" element={<UserList />} />
                     <Route path="/user/:userID" element={<User />} />
                     <Route path="/newUser" element={<NewUser />} />
-
                     <Route path="/qrcode" element={<QrCodeList />} />
-                    
                   </Routes>
                 </div>
               </>
@@ -43,7 +46,8 @@ function App() {
           />
         )}
 
-        <Route path="/" element={<Navigate to="/login" />} />
+        {/* Fallback: Navigate to login if no route matches */}
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
   );

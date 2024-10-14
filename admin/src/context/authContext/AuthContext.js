@@ -13,10 +13,10 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
 
   useEffect(() => {
-    if (state.user) {
+    if (state.user && !state.user.isFirstTime) {
       localStorage.setItem("user", JSON.stringify(state.user));
     } else {
-      localStorage.removeItem("user"); // Remove user from localStorage on logout
+      localStorage.removeItem("user"); // Remove user from localStorage if isFirstTime is true or user is null (logged out)
     }
   }, [state.user]);
 

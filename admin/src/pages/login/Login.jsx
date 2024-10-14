@@ -5,12 +5,15 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { login } from "../../context/authContext/apiCalls";
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const { isFetching, dispatch } = useContext(AuthContext);
+    const { isFetching, dispatch, user } = useContext(AuthContext);
+    const navigate = useNavigate(); //
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -21,11 +24,17 @@ export default function Login() {
             return;
         }
 
-        // Attempt login and set error message if login fails
-        const errorMsg = await login({ userName: username, password }, dispatch);
-        if (errorMsg) {
-            setError(errorMsg);
-        }
+        const loginResponse = await login({ userName: username, password }, dispatch);
+
+    if (loginResponse && loginResponse.redirectToPwRest) {
+      // Redirect to password reset page if first-time login
+      navigate(`/pwreset?uid=${loginResponse.uid}`);
+    } else if (user && !user.isFirstTime) {
+      // Redirect to home if not first-time
+      navigate('/home');
+    } else if (loginResponse) {
+      setError(loginResponse); // Display error message if login fails
+    }
     };
 
     return (
@@ -64,7 +73,7 @@ export default function Login() {
                         onClick={handleLogin}
                         disabled={isFetching}
                     >
-                        {isFetching ? <CircularProgress size={24} /> : "Login"}
+                        {isFetching ? <CircularProgress size={24} /> : "LOGIN"}
                     </Button>
                 </form>
             </div>

@@ -3,7 +3,7 @@ const admin = require('firebase-admin');
 const User = require('../models/User');
 const { sendEmail } = require('../mail');
 const crypto = require('crypto');
-
+const axios = require('axios');
 
 
 const generateRandomPassword = (length = 8) => {
@@ -94,8 +94,7 @@ router.post('/register', async (req, res) => {
 
 
 
-// Login route
-const axios = require('axios');
+
 
 router.post('/login', async (req, res) => {
     const { userName, password } = req.body;
@@ -131,12 +130,85 @@ router.post('/login', async (req, res) => {
         // Generate a custom token for the authenticated user
         const customToken = await admin.auth().createCustomToken(userId);
 
+        // Check if the user is logging in for the first time (isFirstTime)
+        const isFirstTime = userData.isFirstTime || false; // Default to false if undefined
+
         res.status(200).json({
             customToken,
             uid: userId,
+            isFirstTime, // Include isFirstTime in the response
         });
     } catch (error) {
         res.status(400).json({ error: error.response ? error.response.data.error.message : error.message });
+    }
+});
+
+
+// Reset password route
+router.post('/reset-password', async (req, res) => {
+    const { uid, currentPassword, newPassword } = req.body;
+    const db = req.db;
+
+    try {
+        // Fetch the user document by userName
+        const userDoc = await db.collection('users')
+            .where('id', '==', uid)
+            .limit(1)
+            .get();
+
+        if (userDoc.empty) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        const userData = userDoc.docs[0].data();
+        const email = userData.email;
+
+        // Check if newPassword has at least 6 characters
+        if (newPassword.length < 6) {
+            return res.status(400).json({ error: 'New password must be at least 6 characters long' });
+        }
+
+        // Use Firebase REST API to sign in with the old password to validate it
+        const response = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.FIREBASE_API_KEY}`, {
+            email,
+            password: currentPassword,
+            returnSecureToken: true
+        });
+
+        // Get the userId from the sign-in response
+        const userId = response.data.localId;
+
+        // Check if the new password is the same as the old password
+        if (currentPassword === newPassword) {
+            return res.status(400).json({ error: 'New password cannot be the same as the old password' });
+        }
+
+        // Update the user's password using Firebase Admin SDK
+        await admin.auth().updateUser(userId, {
+            password: newPassword
+        });
+        await db.collection('users').doc(userId).update({
+            isFirstTime: false
+        });
+
+        res.status(200).json({
+            message: 'Password updated successfully'
+        });
+    } catch (error) {
+        if (error.response) {
+            // Handle Firebase API errors
+            const errorCode = error.response.data.error.message;
+
+            // Handle invalid password error
+            if (errorCode === 'INVALID_LOGIN_CREDENTIALS') {
+                return res.status(400).json({ error: 'Invalid Password' });
+            }
+
+            res.status(400).json({ error: error.response.data.error.message });
+        } else {
+            // Handle other errors
+            res.status(400).json({ error: error.message });
+        }
     }
 });
 
