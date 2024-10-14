@@ -129,6 +129,7 @@ export default function NewUser() {
 
   return (
     <div className="newUser">
+      <div className="internewuser">
       <h1 className="newUserTitle">New User</h1>
       <form className="newUserForm" onSubmit={handleSubmit}>
         {/* User Creation Form Fields */}
@@ -214,6 +215,7 @@ export default function NewUser() {
             
             <Button 
               variant="contained"
+              className="bulkUser"
               color="primary"
               onClick={handleBulkCreate} 
               disabled={loadingBulk || bulkUsers.length === 0}
@@ -260,6 +262,7 @@ export default function NewUser() {
           </Button>
         </DialogActions>
       </Dialog>
+      </div>
     </div>
   );
 }

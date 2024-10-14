@@ -1,6 +1,9 @@
 .userList {
     flex: 6;
-    height: 83.5vh;
+    height: calc(100vh - 75px); /* Subtract topbar height */
+    /* overflow-y: auto; Allow vertical scrolling */
+    padding: 20px;
+    box-sizing: border-box;
   }
   
   .userListUser {
@@ -31,13 +34,94 @@
    margin-top: 5px !important;
    width: 200px !important;
    height: auto;
+   margin-right: 10px !important;
 }
 
 .createButton{
+  margin-top: 10px !important;
   margin-right: 10px !important;
 }
 
 .userListEdit:hover {
   background-color: #3f9ab5; /* Change background to primary color on hover */
   color: white; /* Change text color to white on hover */
+}
+
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .userList {
+    padding: 10px;
+    margin-top: 75px; /* Add top margin to account for fixed topbar */
+    height: calc(100vh - 75px); 
+    overflow: hidden;
+  }
+
+  .MuiDataGrid-root {
+    height: 100%; /* Make the table height relative to its container */
+    max-height: 100%; /* Ensure table stays within bounds */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    overflow-y: auto; /* Enable vertical scrolling for the table content */
+  }
+
+  .searchInput {
+    width: 60% !important;
+    margin-top: 10px;
+    margin-bottom: 10px; /* Add space below search input */
+
+  }
+
+  .createButton {
+    width: 100%;
+    margin-right: 5px !important;
+    margin-top: 10px;
+  }
+
+  /* Adjust DataGrid for smaller screens */
+  .MuiDataGrid-root {
+    height: calc(100vh - 200px); /* Adjust height to fit screen */
+  }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+  .userList {
+    padding: 5px;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  
+  .searchInput,
+  .createButton {
+      width: 50% !important; /* Full width for smaller screens */
+      margin-top: 10px;
+      margin-bottom: 5px 0;
+      
+  }
+
+  .MuiTab-root {
+    font-size: 10px; /* Even smaller font */
+    min-width: 70px; /* Narrower tabs */
+    padding: 8px 10px; /* Add padding for better touch interaction */
+  }
+
+  /* Stack tabs vertically for better mobile usability */
+  .MuiTabs-root {
+    flex-direction: column;
+  }
+
+  /* Ensure the tabs don't disappear */
+  .MuiTabs-flexContainer {
+    flex-wrap: nowrap; /* Ensure no wrapping */
+  }
+ 
+  .MuiDataGrid-root {
+    font-size: 12px; /* Reduce font size for better fit */
+  }
+
+  /* Hide less important columns on very small screens */
+  .MuiDataGrid-columnHeader[data-field="email"],
+  .MuiDataGrid-cell[data-field="email"] {
+    display: none;
+  }
 }

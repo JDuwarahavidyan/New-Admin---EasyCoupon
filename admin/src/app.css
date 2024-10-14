@@ -1,9 +1,19 @@
 .container{
-  display: flex;
-  /* margin-top: 10px; */
+  display: flex; /* margin-top: 10px; */
+  
+
+  
 }
 
 .link{
   text-decoration: none;
   color: inherit;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    margin-top: 75px; /* Height of the topbar */
+  }
 }

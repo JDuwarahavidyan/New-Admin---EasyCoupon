@@ -66,3 +66,54 @@
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a slight overlay */
 }
+
+@media (max-width: 1024px) {
+    .widgetSmListItem {
+        margin: 15px 0;
+        flex-direction: row; /* Ensure row layout on tablets */
+        align-items: flex-start; /* Align items properly */
+        gap: 10px; /* Reduce gaps between items */
+    }
+
+    .widgetSmUser {
+        margin-left: -50px; /* Reduced margin */
+    }
+
+    .widgetSmImg {
+        margin-left: 10px; /* Reduced space between image and text */
+    }
+
+    .widgetSmButton {
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .widgetSm{
+        width:250px;
+    }
+
+
+
+    .widgetSmListItem {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: flex-start;
+        gap: 5px; /* Minimized gap between image, text, and button */
+    }
+
+    .widgetSmUser {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .widgetSmImg {
+        width: 40px;
+        height: 40px; /* Smaller avatar size */
+        margin-left: 0; /* No left margin for better stacking */
+    }
+
+    .widgetSmButton {
+        padding: 5px;
+        font-size: 12px;
+    }
+}
