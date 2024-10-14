@@ -7,7 +7,6 @@ import './app.css';
 import reportWebVitals from './reportWebVitals';
 import { AuthContextProvider } from './context/authContext/AuthContext';
 import { QrCodeContextProvider } from './context/qrCodeContext/QrCodeContext';
-import { ListContextProvider } from './context/listContext/ListContext';
 import { UserContextProvider } from './context/userContext/UserContext';
 
 
@@ -17,11 +16,9 @@ root.render(
   <React.StrictMode>
     <AuthContextProvider>
       <QrCodeContextProvider>
-        <ListContextProvider>
           <UserContextProvider>
             <App />
           </UserContextProvider>
-        </ListContextProvider>
       </QrCodeContextProvider>
     </AuthContextProvider>
   </React.StrictMode>

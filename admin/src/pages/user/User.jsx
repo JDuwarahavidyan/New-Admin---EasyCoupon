@@ -49,10 +49,6 @@ export default function User() {
   const [qrValue, setQrValue] = useState(null);
 
 
-  // useEffect(() => {
-  //   console.log('location', location);
-  // }, [location]);
-
   const qrCodeRef = useRef();
 
   const handleChange = (e) => {
@@ -69,7 +65,7 @@ export default function User() {
   };
 
   const uploadImage = async () => {
-    if (!img) return user.profilePic; // Return existing profile pic URL if no new image
+    if (!img) return user.profilePic; 
 
     const fileName = new Date().getTime() + img.name;
     const storageRef = ref(storage, `/profilePics/${fileName}`);
@@ -100,20 +96,20 @@ export default function User() {
     setLoading(true);
     setUploading(true);
   
-    const oldProfilePicUrl = user.profilePic; // Store the old profile picture URL
+    const oldProfilePicUrl = user.profilePic; 
   
     try {
-      const imgURL = await uploadImage(); // Upload the new image
+      const imgURL = await uploadImage(); 
       const { createdAt, ...updatePayload } = formValues;
       updatePayload.profilePic = imgURL;
   
       await updateUser(formValues.id, updatePayload, dispatch);
       setUser({ ...formValues, profilePic: imgURL }); 
   
-      // Delete the old image if a new one was uploaded
+      
       if (img && oldProfilePicUrl) {
         const oldImageRef = ref(storage, oldProfilePicUrl);
-        await deleteObject(oldImageRef); // Delete the old image
+        await deleteObject(oldImageRef); 
       }
   
       setLoading(false);
@@ -164,26 +160,25 @@ export default function User() {
     const serializer = new XMLSerializer();
     const svgString = serializer.serializeToString(svg);
   
-    // Create an Image object
+  
     const img = new Image();
     const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
     const url = URL.createObjectURL(svgBlob);
   
     img.onload = () => {
-      // Create a canvas element
+   
       const canvas = document.createElement('canvas');
       canvas.width = img.width;
       canvas.height = img.height;
       
-      // Draw the image (from SVG) onto the canvas
+      
       const ctx = canvas.getContext('2d');
       ctx.drawImage(img, 0, 0);
   
-      // Convert the canvas to a PNG blob
+      
       canvas.toBlob((blob) => {
-        // Use FileSaver.js to save the blob as a PNG file
         saveAs(blob, `${user.userName}_QRCode.png`);
-        // Revoke the object URL to free up memory
+        
         URL.revokeObjectURL(url);
       }, 'image/png');
     };
@@ -360,7 +355,7 @@ export default function User() {
                   >
                     <MenuItem value="student">Student</MenuItem>
                     <MenuItem value="canteena">Canteen A (Kalderama)</MenuItem>
-                    <MenuItem value="canteenb">Canteen B (Kadadora)</MenuItem>
+                    <MenuItem value="canteenb">Canteen B (Hilton)</MenuItem>
                     <MenuItem value="admin">Admin</MenuItem>
                   </Select>
                 </FormControl>

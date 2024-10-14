@@ -24,9 +24,31 @@ const AuthReducer = (state, action) => {
         isFetching: false,
         error: false,
       };
+
+    case "RESET_PASSWORD_START":
+      return {
+        ...state,
+        isFetching: true,
+        error: false,
+      };
+    case "RESET_PASSWORD_SUCCESS":
+      return {
+        ...state,
+        isFetching: false,
+        error: false,
+      };
+    case "RESET_PASSWORD_FAILURE":
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload,
+      };
+      
     default:
       return state; 
   }
+
+  
 };
 
 export default AuthReducer;
