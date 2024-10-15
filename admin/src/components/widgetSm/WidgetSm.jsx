@@ -45,10 +45,17 @@ export default function WidgetSm() {
   const [newUsers, setNewUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
     const getNewUsers = async () => {
       try {
-        const res = await axios.get('/users?new=true', {
+
+        const axiosInstance = axios.create({
+          baseURL: process.env.REACT_APP_API_URL,
+        }); // Create an axios instance
+      
+      
+        const res = await axiosInstance.get('/users?new=true', {
           headers: {
             authorization: 'Bearer ' + JSON.parse(localStorage.getItem('user')).customToken,
           },

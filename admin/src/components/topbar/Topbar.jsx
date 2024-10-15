@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'; 
+import React, { useContext } from 'react'; 
 import './topbar.css';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
@@ -13,24 +13,14 @@ import { logout } from '../../context/authContext/AuthActions';
 export default function Topbar() {
     const { dispatch } = useContext(AuthContext);
     const navigate = useNavigate(); // useNavigate hook for programmatic navigation
-    const [scrollPosition, setScrollPosition] = useState(0);
+
 
     const handleLogout = () => {
         dispatch(logout()); // Dispatch the logout action
         localStorage.removeItem("user"); // Remove user data from localStorage
         navigate("/"); // Navigate to the login page
     };
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         setScrollPosition(window.pageXOffset);
-    //     };
-
-    //     window.addEventListener('scroll', handleScroll);
-
-    //     return () => {
-    //         window.removeEventListener('scroll', handleScroll);
-    //     };
-    // }, []);
+  
 
     return (
         <div className="topbar">

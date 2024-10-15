@@ -9,11 +9,14 @@ import {
 
 } from "./QrCodeAction";
 
+const axiosInstance = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+});
 
 export const getQrcodes = async (dispatch) => {
   dispatch(getQrCodesStart());
   try {
-    const res = await axios.get("/qr", {
+    const res = await axiosInstance.get("/qr", {
       headers: {
         authorization: "Bearer " + JSON.parse(localStorage.getItem("user")).customToken,
       },
@@ -27,7 +30,7 @@ export const getQrcodes = async (dispatch) => {
 export const deleteQrCode = async (id, dispatch) => {
   dispatch(deleteQrCodeStart());
   try {
-      await axios.delete("/qr/" + id, {
+      await axiosInstance.delete("/qr/" + id, {
       headers: {
         authorization: "Bearer " + JSON.parse(localStorage.getItem("user")).customToken,
       },

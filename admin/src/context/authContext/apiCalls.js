@@ -8,10 +8,19 @@ import {
   resetPasswordSuccess,
    } from "./AuthActions";
 
+
+
+
 export const login = async (user, dispatch) => {
   dispatch(loginStart());
   try {
-    const res = await axios.post("/auth/login", user); // Send username and password
+
+    const axiosInstance = axios.create({
+      baseURL: process.env.REACT_APP_API_URL,
+    }); // Create an axios instance
+    
+
+    const res = await axiosInstance.post("/auth/login", user); // Send username and password
 
     if (res.data.customToken) {
       const userData = res.data; // Get the user data returned from the backend
@@ -25,8 +34,8 @@ export const login = async (user, dispatch) => {
       }
       return null; // No error, regular login
     } else {
-      dispatch(loginFailure("Not an admin")); // Specific failure message
-      return "Not an admin";
+      dispatch(loginFailure("Error in Logging! Please try again later!")); // Specific failure message
+      return "Error in Logging! Please try again later!";
     }
   } catch (err) {
     dispatch(loginFailure("Invalid username or password")); // Failure with message
@@ -37,7 +46,12 @@ export const login = async (user, dispatch) => {
 export const resetPassword = async ({ uid, currentPassword, newPassword }, dispatch)=> {
   dispatch(resetPasswordStart());
   try {
-    const res = await axios.post("/auth/reset-password", { uid, currentPassword, newPassword });
+
+    const axiosInstance = axios.create({
+      baseURL: process.env.REACT_APP_API_URL,
+    }); // Create an axios instance
+    
+    const res = await axiosInstance.post("/auth/reset-password", { uid, currentPassword, newPassword });
     
     if (res.status >= 200 && res.status < 300) {
       dispatch(resetPasswordSuccess());

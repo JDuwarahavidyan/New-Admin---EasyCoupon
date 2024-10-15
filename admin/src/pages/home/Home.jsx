@@ -4,9 +4,9 @@ import WidgetSm from '../../components/widgetSm/WidgetSm';
 import WidgetLg from '../../components/widgetLg/WidgetLg';
 import axios from 'axios';
 import { useEffect, useMemo, useState } from 'react';
-import FeaturedInfo from '../../components/featuredInfo/FeaturedInfo';
+// import FeaturedInfo from '../../components/featuredInfo/FeaturedInfo';
 // eslint-disable-next-line no-unused-vars
-import CircularProgress from '@mui/material/CircularProgress';
+// import CircularProgress from '@mui/material/CircularProgress';
 
 
 export default function Home() {
@@ -31,7 +31,11 @@ export default function Home() {
           return;
         }
 
-        const res = await axios.get("/users/stats", {
+        const axiosInstance = axios.create({
+          baseURL: process.env.REACT_APP_API_URL,
+        }); // Create an axios instance
+
+        const res = await axiosInstance.get("/users/stats", {
           headers: {
             authorization: "Bearer " + user.customToken,
           },

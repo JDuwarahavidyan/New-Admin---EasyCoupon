@@ -21,12 +21,15 @@ import {
 
 } from "./UserAction"
 
+const axiosInstance = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+});
 
 // GET UserS
 export const getUsers = async (dispatch) => {
   dispatch(getUsersStart());
   try {
-    const res = await axios.get("/users", {
+    const res = await axiosInstance.get("/users", {
       headers: {
         authorization: "Bearer " + JSON.parse(localStorage.getItem("user")).customToken,
       },
@@ -40,7 +43,7 @@ export const getUsers = async (dispatch) => {
 export const createUser = async (user, dispatch) => {
   dispatch(createUserStart());
   try {
-      const res = await axios.post("/auth/register", user, {
+      const res = await axiosInstance.post("/auth/register", user, {
           headers: {
               authorization: "Bearer " + JSON.parse(localStorage.getItem("user")).customToken,
           },
@@ -59,7 +62,7 @@ export const createUser = async (user, dispatch) => {
 export const updateUser = async (id, User, dispatch) => {
     dispatch(updateUserStart());
     try {
-        const res = await axios.put("/users/" + id, User, {
+        const res = await axiosInstance.put("/users/" + id, User, {
         headers: {
           authorization: "Bearer " + JSON.parse(localStorage.getItem("user")).customToken,
         },
@@ -77,7 +80,7 @@ export const updateUser = async (id, User, dispatch) => {
 export const deleteUser = async (id, dispatch) => {
     dispatch(deleteUserStart());
     try {
-        await axios.delete("/users/" + id, {
+        await axiosInstance.delete("/users/" + id, {
         headers: {
           authorization: "Bearer " + JSON.parse(localStorage.getItem("user")).customToken,
         },
@@ -92,7 +95,7 @@ export const deleteUser = async (id, dispatch) => {
 export const disableUser = async (id, dispatch) => {
   dispatch(disableUserStart());
   try {
-    const res = await axios.put("/users/disable/" + id, null, {
+    const res = await axiosInstance.put("/users/disable/" + id, null, {
       headers: {
         authorization: "Bearer " + JSON.parse(localStorage.getItem("user")).customToken,
       },
@@ -107,7 +110,7 @@ export const disableUser = async (id, dispatch) => {
 export const enableUser = async (id, dispatch) => {
   dispatch(enableUserStart());
   try {
-    const res = await axios.put("/users/enable/" + id, null, {
+    const res = await axiosInstance.put("/users/enable/" + id, null, {
       headers: {
         authorization: "Bearer " + JSON.parse(localStorage.getItem("user")).customToken,
       },

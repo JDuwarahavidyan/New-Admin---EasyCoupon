@@ -7,6 +7,7 @@ const qrRoute = require('./routes/qr');
 const http = require('http');
 const WebSocket = require('ws');
 const admin = require('firebase-admin');
+const cors = require('cors');
 
 dotenv.config();
 
@@ -25,6 +26,9 @@ app.use((req, res, next) => {
   next();
 });
 
+
+
+app.use(cors("*")); // Allow all origins to access the server
 app.use(express.json());
 
 app.use('/api/auth', authRoute);
@@ -33,8 +37,6 @@ app.use('/api/qr', qrRoute);
 
 // WebSocket connection for real-time updates
 wss.on('connection', (ws) => {
-  // console.log('Client connected');
-
   const qrcodeRef = db.collection('qrcodes').orderBy('scannedAt', 'desc');
 
   qrcodeRef.onSnapshot(snapshot => {
@@ -43,7 +45,7 @@ wss.on('connection', (ws) => {
   });
 
   ws.on('close', () => {
-    // console.log('Client disconnected');
+    // Handle client disconnect
   });
 });
 

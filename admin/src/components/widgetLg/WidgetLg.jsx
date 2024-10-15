@@ -21,10 +21,16 @@ export default function WidgetLg() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("/users?new=true", {
+        const axiosInstance = axios.create({
+          baseURL: process.env.REACT_APP_API_URL,
+        }); // Create an axios instance
+        
+        const res = await axiosInstance.get("/users?new=true", {
           headers: {
             authorization: "Bearer " + JSON.parse(localStorage.getItem("user")).customToken,
           },
