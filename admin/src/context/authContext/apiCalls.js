@@ -8,17 +8,15 @@ import {
   resetPasswordSuccess,
    } from "./AuthActions";
 
-
+   const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_API_URL,
+  }); // Create an axios instance
+  
 
 
 export const login = async (user, dispatch) => {
   dispatch(loginStart());
   try {
-
-    const axiosInstance = axios.create({
-      baseURL: process.env.REACT_APP_API_URL,
-    }); // Create an axios instance
-    
 
     const res = await axiosInstance.post("/auth/login", user); // Send username and password
 
@@ -47,9 +45,6 @@ export const resetPassword = async ({ uid, currentPassword, newPassword }, dispa
   dispatch(resetPasswordStart());
   try {
 
-    const axiosInstance = axios.create({
-      baseURL: process.env.REACT_APP_API_URL,
-    }); // Create an axios instance
     
     const res = await axiosInstance.post("/auth/reset-password", { uid, currentPassword, newPassword });
     
