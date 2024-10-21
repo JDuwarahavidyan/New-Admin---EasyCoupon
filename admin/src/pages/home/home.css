@@ -1,24 +1,15 @@
-.home {
-  flex: 6;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin-top: 20px;
+.home{
+    flex: 6;
+    overflow: hidden;
 }
 
-.homeWidgets {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 10px;
-  gap: 20px;
+.homeWidgets{
+    display: flex;
+    margin: 20px;
 }
 
 .chart {
   height: 400px;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  margin-top: 10px;
 }
 
 .loadingContainer {
@@ -26,45 +17,4 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-}
-@media (max-width: 1500px) {
-  .homeWidgets {
-      flex-direction: column;
-      margin: 10px;
-      width:800px;
-  }
-
-  .chart {
-      height: 300px;
-      width: 1200px;
-  }
-}
-
-
-
-
-
-
-@media (max-width: 1024px) {
-  .homeWidgets {
-      flex-direction: column;
-      margin: 10px;
-      width:800px;
-  }
-
-  .chart {
-      height: 300px;
-      width: 800px;
-  }
-}
-
-@media (max-width: 480px) {
-  .homeWidgets {
-      margin: 10px;
-      width: 200px;
-  }
-  .home {
-    margin: 10px;
-    width: 200px;
-}
 }

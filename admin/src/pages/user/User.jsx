@@ -1,10 +1,11 @@
 import './user.css';
 import { Stack } from '@mui/material';
 import { Avatar } from '@mui/material';
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import FingerprintIcon from '@mui/icons-material/Fingerprint';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
+import EventIcon from '@mui/icons-material/Event';
 import TextField from '@mui/material/TextField';
 import PublishIcon from '@mui/icons-material/Publish';
 import { Link } from 'react-router-dom';
@@ -183,7 +184,6 @@ export default function User() {
       }, 'image/png');
     };
   
-    // Set the image source to the SVG blob URL
     img.src = url;
   };
   
@@ -251,11 +251,11 @@ export default function User() {
           <div className="userShowBottom">
             <span className="userShowTitle">Account Details</span>
             <div className="userShowInfo">
-              <PermIdentityIcon className="userShowIcon" />
+              <FingerprintIcon className="userShowIcon" />
               <span className="userShowInfoTitle">ID: {user.id}</span>
             </div>
             <div className="userShowInfo">
-              <PermIdentityIcon className="userShowIcon" />
+              <AccountCircleIcon className="userShowIcon" />
               <span className="userShowInfoTitle">Full Name: {user.fullName}</span>
             </div>
             <span className="userShowTitle">Other Details</span>
@@ -265,7 +265,7 @@ export default function User() {
             </div>
             {user.role === 'student' && (
               <div className="userShowInfo">
-                <LocationOnIcon className="userShowIcon" />
+                <ConfirmationNumberIcon className="userShowIcon" />
                 <span className="userShowInfoTitle">
                   Remaining {user.studentCount === 1 ? 'Coupon: ' : 'Coupons: '}
                   {user.studentCount}
@@ -274,13 +274,13 @@ export default function User() {
             )}
             {(user.role === 'canteena' || user.role === 'canteenb') && (
               <div className="userShowInfo">
-                <LocationOnIcon className="userShowIcon" />
+                <ConfirmationNumberIcon className="userShowIcon" />
                 <span className="userShowInfoTitle">Current Usage: {user.canteenCount}</span>
               </div>
             )}
             {user.role === 'admin' && (
               <div className="userShowInfo">
-                <CalendarTodayIcon className="userShowIcon" />
+                <EventIcon className="userShowIcon" />
                 <span className="userShowInfoTitle">
                   Created At:{' '}
                   {new Date(user.createdAt._seconds * 1000).toLocaleString('en-US', {

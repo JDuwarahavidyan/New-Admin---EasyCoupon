@@ -83,7 +83,7 @@ export default function QrCodeList() {
             hour: 'numeric',
             minute: 'numeric',
             second: 'numeric',
-            hour12: true // 12-hour format with AM/PM
+            hour12: true 
           });
           return `${formattedDate}, ${formattedTime}`;
         }
@@ -121,11 +121,11 @@ export default function QrCodeList() {
     <div className="userList">
       <Box className="header">
         <Tabs value={roleFilter} onChange={handleTabChange} aria-label="user role filter"
-        variant="scrollable" // Make the tabs scrollable
-        scrollButtons="auto" // Automatically show the arrows when tabs overflow
-        allowScrollButtonsMobile // Ensures arrows show on mobile when needed
+        variant="scrollable" 
+        scrollButtons="auto" 
+        allowScrollButtonsMobile 
         TabIndicatorProps={{
-          style: { backgroundColor: '#206892' }, // Customize the tab indicator color
+          style: { backgroundColor: '#206892' }, 
         }}>
           <Tab label="All" value="all" />
           <Tab label="Canteen A (Kalderama)" value="canteena" />
@@ -143,7 +143,7 @@ export default function QrCodeList() {
             placeholder="Select the Date Range"
             placement="autoVertical"
             format="yyyy-MM-dd"
-            onClean={() => setSelectedDateRange([null, null])} // Reset the date range
+            onClean={() => setSelectedDateRange([null, null])} 
           />
         </Box>
         <Box className="searchBox">
@@ -176,9 +176,9 @@ export default function QrCodeList() {
             rows={filteredQrCodes}
             disableSelectionOnClick
             columns={columns}
-            pageSize={10} // Limit to 10 records per page
-            pageSizeOptions={[10, 25, 50, 100]} // Additional page size options
-            pagination // Enable pagination
+            pageSize={10} 
+            pageSizeOptions={[10, 25, 50, 100]} 
+            pagination 
             checkboxSelection
             getRowId={(r) => r.id}
           />

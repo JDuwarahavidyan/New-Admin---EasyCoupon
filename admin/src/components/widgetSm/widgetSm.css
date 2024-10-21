@@ -5,12 +5,12 @@
     padding: 20px;
     margin-right: 20px;
     position: relative;
-    filter: none; /* No blur by default */
-    transition: filter 0.3s ease; /* Smooth transition */
+    filter: none; 
+    transition: filter 0.3s ease;
 }
 
 .widgetSm.loading {
-    filter: blur(8px); /* Apply blur when loading */
+    filter: blur(8px);
 }
 
 .widgetSmTitle{
@@ -58,29 +58,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Full height of the widgetSm container */
+    height: 100%; 
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a slight overlay */
+    background-color: rgba(255, 255, 255, 0.8); 
 }
 
 @media (max-width: 1024px) {
     .widgetSmListItem {
         margin: 15px 0;
-        flex-direction: row; /* Ensure row layout on tablets */
-        align-items: flex-start; /* Align items properly */
-        gap: 10px; /* Reduce gaps between items */
+        flex-direction: row; 
+        align-items: flex-start; 
+        gap: 10px;
     }
 
     .widgetSmUser {
-        margin-left: -50px; /* Reduced margin */
+        margin-left: -50px; 
     }
 
     .widgetSmImg {
-        margin-left: 10px; /* Reduced space between image and text */
+        margin-left: 10px; 
     }
 
     .widgetSmButton {
@@ -96,9 +96,9 @@
 
 
     .widgetSmListItem {
-        flex-direction: column; /* Stack items vertically on small screens */
+        flex-direction: column; 
         align-items: flex-start;
-        gap: 5px; /* Minimized gap between image, text, and button */
+        gap: 5px; 
     }
 
     .widgetSmUser {
@@ -108,8 +108,8 @@
 
     .widgetSmImg {
         width: 40px;
-        height: 40px; /* Smaller avatar size */
-        margin-left: 0; /* No left margin for better stacking */
+        height: 40px;
+        margin-left: 0; 
     }
 
     .widgetSmButton {

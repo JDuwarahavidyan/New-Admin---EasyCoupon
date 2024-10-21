@@ -94,7 +94,7 @@
 
 @media screen and (max-width: 480px) {
   .widgetLgTable {
-    display: block; /* Change table to block layout */
+    display: block; 
   }
 
   .widgetLg{
@@ -102,33 +102,32 @@
   }
 
   .widgetLgTable thead {
-    display: none; /* Hide table headers */
+    display: none;
   }
 
   .widgetLgTable tbody {
-    display: block; /* Display tbody as a block */
+    display: block; 
   }
 
   .widgetLgTable tr {
-    display: block; /* Make each row a block */
-    margin-bottom: 10px; /* Add spacing between rows */
+    display: block; 
+    margin-bottom: 10px; 
   }
 
   .widgetLgTable td {
-    display: flex; /* Flex to align label and data */
+    display: flex; 
     padding: 10px 0;
     font-size: 12px;
-    border-bottom: 1px solid #ddd; /* Optional: for better separation */
+    border-bottom: 1px solid #ddd; 
   }
 
   .widgetLgTable td::before {
-    content: attr(data-label); /* Use data-label to show the header label */
+    content: attr(data-label); 
     font-weight: bold;
     margin-right: 10px;
     font-size: 14px;
   }
 
-  /* Button adjustments */
   .widgetLgButton {
     padding: 3px 5px;
     font-size: 10px;
