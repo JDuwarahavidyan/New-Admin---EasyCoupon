@@ -6,28 +6,31 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Link, useNavigate } from 'react-router-dom'; // Added useNavigate for navigation
+import { Link, useNavigate } from 'react-router-dom'; 
 import { AuthContext } from '../../context/authContext/AuthContext';
 import { logout } from '../../context/authContext/AuthActions';
 
 export default function Topbar() {
     const { dispatch } = useContext(AuthContext);
-    const navigate = useNavigate(); // useNavigate hook for programmatic navigation
-
+    const navigate = useNavigate(); 
 
     const handleLogout = () => {
-        dispatch(logout()); // Dispatch the logout action
-        localStorage.removeItem("user"); // Remove user data from localStorage
-        navigate("/"); // Navigate to the login page
+        dispatch(logout()); 
+        localStorage.removeItem("user"); 
+        navigate("/"); 
     };
-  
 
     return (
         <div className="topbar">
             <div className="topbarWrapper">
                 <div className="topLeft">
                     <Link to={"/"} className='link'>
-                        <span className="logo">Easy Coupon</span>
+                        <img 
+                            src="https://raw.githubusercontent.com/DuwarahavidyanJ/images/refs/heads/main/logocoupon.png" 
+                            alt="Logo" 
+                            className="logoImage"
+                        />
+                        {/* <span className="logo">Easy Coupon</span> */}
                     </Link>
                 </div>
                 <div className="topRight">
@@ -50,6 +53,7 @@ export default function Topbar() {
                         </Stack>
                     </div>   
                     <div className="profile">
+                        
                         <KeyboardArrowDownIcon className="icon"/>
                         <div className="options">
                             <span>Settings</span>

@@ -21,15 +21,13 @@ export default function WidgetLg() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-
-
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const axiosInstance = axios.create({
           baseURL: process.env.REACT_APP_API_URL,
-        }); // Create an axios instance
-        
+        }); 
+
         const res = await axiosInstance.get("/users?new=true", {
           headers: {
             authorization: "Bearer " + JSON.parse(localStorage.getItem("user")).customToken,
@@ -60,6 +58,18 @@ export default function WidgetLg() {
     return <div className="widgetLg">Error loading data</div>;
   }
 
+
+  const formatDate = (timestamp) => {
+    if (timestamp && timestamp._seconds) {
+      const date = new Date(timestamp._seconds * 1000); 
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0'); 
+      const year = date.getFullYear();
+      return `${day}/${month}/${year}`; 
+    }
+    return 'Invalid Date';
+  };
+
   return (
     <div className="widgetLg">
       <h3 className="widgetLgTitle">Other Details</h3>
@@ -83,8 +93,8 @@ export default function WidgetLg() {
                   <span className="widgetLgName">{user.userName}</span>
                 </TableCell>
                 <TableCell className="widgetLgStatus"><Button props={user.email} /></TableCell>
-                <TableCell className="widgetLgDate">{new Date(user.createdAt.seconds*1000).toLocaleDateString()}</TableCell>
-                <TableCell className="widgetLgDate">{new Date(user.updatedAt.seconds*1000).toLocaleDateString()}</TableCell>
+                <TableCell className="widgetLgDate">{formatDate(user.createdAt)}</TableCell>
+                <TableCell className="widgetLgDate">{formatDate(user.updatedAt)}</TableCell>
               </TableRow>
             ))}
           </TableBody>

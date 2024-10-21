@@ -27,29 +27,28 @@ export default function PwReset() {
         e.preventDefault();
         setError("");
 
-        // Basic validation for empty fields
+
         if (!currentPassword || !newPassword || !confirmPassword) {
             setError("All fields are required");
             return;
         }
 
-        // Check if new password matches confirm password
+
         if (newPassword !== confirmPassword) {
             setError("New password and confirm password do not match");
             return;
         }
 
-        // Check if new password is different from current password
+
         if (newPassword === currentPassword) {
             setError("New password must be different from the current password");
             return;
         }
 
-        // Attempt to update the password
         const updateResponse = await resetPassword({ uid, currentPassword, newPassword }, dispatch);
 
         if (updateResponse && updateResponse.success) {
-            setSuccess(true); // Mark success state
+            setSuccess(true); 
         } else {
             setError(updateResponse.error || "Failed to update password");
         }

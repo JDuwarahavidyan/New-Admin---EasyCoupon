@@ -18,7 +18,6 @@ export default function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        // Basic validation for empty fields
         if (!username || !password) {
             setError("All fields are required");
             return;
@@ -27,13 +26,11 @@ export default function Login() {
         const loginResponse = await login({ userName: username, password }, dispatch);
 
     if (loginResponse && loginResponse.redirectToPwRest) {
-      // Redirect to password reset page if first-time login
       navigate(`/pwreset?uid=${loginResponse.uid}`);
     } else if (user && !user.isFirstTime) {
-      // Redirect to home if not first-time
       navigate('/home');
     } else if (loginResponse) {
-      setError(loginResponse); // Display error message if login fails
+      setError(loginResponse); 
     }
     };
 

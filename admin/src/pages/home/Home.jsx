@@ -19,7 +19,7 @@ export default function Home() {
   );
 
   const [userStats, setUserStats] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const getStats = async () => {
@@ -56,7 +56,7 @@ export default function Home() {
       } catch (err) {
         console.error("Failed to fetch user stats:", err);
       } finally {
-        setLoading(false); // Stop loading after fetching data
+        setLoading(false); 
       }
     };
     getStats();

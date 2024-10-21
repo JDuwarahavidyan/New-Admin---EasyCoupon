@@ -1,4 +1,3 @@
-/* Sidebar styles */
 .sidebar {
   flex: 1;
   height: calc(100vh - 75px);
@@ -6,10 +5,9 @@
   position: sticky;
   top: 75px;
   width: 250px;
-  /* Set a fixed width */
   transition: width 0.3s ease;
-  /* Smooth transition when collapsing */
   z-index: 2;
+  overflow: hidden;
 }
 
 .sidebarWrapper {
@@ -17,6 +15,9 @@
   width: 100%;
   padding: 20px;
   color: #555;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
 }
 
 .sidebarMenu {
@@ -40,12 +41,19 @@
   display: flex;
   align-items: center;
   border-radius: 15px;
+  margin-top: 5px;
 }
 
-.sidebarListItem.active,
+.sidebarListItem.active {
+  background-color: rgb(194, 204, 247);
+  color: rgb(19, 91, 124);
+  font-weight: bold;
+  width: 100px; 
+}
+
 .sidebarListItem:hover {
   background-color: rgb(194, 204, 247);
-  width: 80px;
+  width: 100px; 
 }
 
 .sidebarIcon {
@@ -53,51 +61,23 @@
   font-size: 16px !important;
 }
 
-/* Media Queries for Responsive Design */
 
-/* For screens wider than 1200px */
-@media (min-width: 1200px) {
-  .sidebar {
-    width: 250px;
-    /* Slightly wider for larger screens */
-  }
+.sidebarLogout {
+  bottom: 0;
+  top: auto;
+  font-size: larger;
+  margin-top: auto;
+  cursor: pointer;
+  margin-bottom: 30px;
+  width: 200px;
 }
 
-/* For smaller screens (tablets) */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 150px;
-    /* Make the sidebar thinner for smaller screens */
-  }
-}
-
-/* For very small screens (mobile) */
-@media (max-width: 500px) {
-  .sidebar {
-    width: 100px;
-    /* Minimal sidebar width, only show icons */
-
-  }
-
-  .sidebarTitle {
-    font-size: 10px;
-  }
-
-  .sidebarListItem:hover {
-    background-color: rgb(194, 204, 247);
-    width: 40px;
-  }
-
-  .sidebarTitle {
-    text-align: left;
-    /* Align text to the left */
-    line-height: 1.2;
-    /* Reduce line spacing */
-    margin-bottom: 5px;
-    /* Optional: Adjust bottom margin for extra spacing control */
-  }
-
-  .sidebarList {
-    font-size: 0px;
-  }
+.sidebarListItemlogout{
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  margin-top: 5px;
+  color: red;
 }

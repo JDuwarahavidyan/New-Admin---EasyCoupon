@@ -25,11 +25,11 @@ export default function NewUser() {
     email: "",
     role: "student",
   });
-  const [loadingSingle, setLoadingSingle] = useState(false); // Loading state for single user creation
-  const [loadingBulk, setLoadingBulk] = useState(false); // Loading state for bulk user creation
+  const [loadingSingle, setLoadingSingle] = useState(false); 
+  const [loadingBulk, setLoadingBulk] = useState(false);
   const [open, setOpen] = useState(false);
   const [dialogMessage, setDialogMessage] = useState("");
-  const [bulkUsers, setBulkUsers] = useState([]); // State to store bulk users data
+  const [bulkUsers, setBulkUsers] = useState([]); 
   const [isSuccessful, setIsSuccessful] = useState(false);
 
   const navigate = useNavigate();
@@ -46,7 +46,6 @@ export default function NewUser() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if any of the fields are empty
     if (!user.userName || !user.fullName || !user.email || !user.role) {
         setDialogMessage("All fields are required.");
         setIsSuccessful(false);
@@ -58,10 +57,10 @@ export default function NewUser() {
     try {
         await createUser(user, dispatch);
         setDialogMessage("User registered successfully!");
-        setIsSuccessful(true);  // Set success flag to true
+        setIsSuccessful(true);  
     } catch (err) {
         setDialogMessage(err.message || "Failed to register user. Please try again.");
-        setIsSuccessful(false); // Ensure success flag is false on error
+        setIsSuccessful(false); 
     } finally {
         setOpen(true);
         setLoadingSingle(false);
@@ -77,6 +76,15 @@ export default function NewUser() {
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
+    const validExtensions = ['xlsx', 'xls']; 
+    const fileExtension = file.name.split('.').pop().toLowerCase(); 
+  
+    if (!validExtensions.includes(fileExtension)) {
+      setDialogMessage("Invalid file format. Please upload an .xlsx or .xls file.");
+      setOpen(true); 
+      return; 
+    }
+  
     if (file) {
       const reader = new FileReader();
       reader.onload = (event) => {
@@ -84,24 +92,24 @@ export default function NewUser() {
         const workbook = XLSX.read(binaryStr, { type: 'binary' });
         const sheetName = workbook.SheetNames[0];
         const sheet = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
-
-        // Store the parsed sheet data into state
+  
         setBulkUsers(sheet);
       };
       reader.readAsBinaryString(file);
     }
   };
+  
 
   const handleBulkCreate = async () => {
     setLoadingBulk(true);
     let errorMessages = [];
 
     for (const row of bulkUsers) {
-        // Combine faculty, batch, and indexno to create the userName
+        
         const userName = `${row['Faculty']}${row['Batch']}${row['RegNo']}`.toLowerCase();
 
         const newUser = {
-            userName, // Use the combined and lowercased userName
+            userName, 
             fullName: row['Full Name'],
             email: row['Email'],
             role: row['Role'],
@@ -120,7 +128,7 @@ export default function NewUser() {
     setLoadingBulk(false);
     setDialogMessage(
         errorMessages.length > 0
-            ? errorMessages // Store as an array of messages
+            ? errorMessages 
             : ["Bulk user creation process completed successfully!"]
     );
     setOpen(true);
@@ -132,7 +140,6 @@ export default function NewUser() {
       <div className="internewuser">
       <h1 className="newUserTitle">New User</h1>
       <form className="newUserForm" onSubmit={handleSubmit}>
-        {/* User Creation Form Fields */}
         <div className="newUserItem">
           <TextField
             className="newUserItem"
@@ -225,13 +232,13 @@ export default function NewUser() {
             </Button>
           </div>
 
-          {/* Download Sample Document Section */}
+         
           <div className="downloadSample">
             <Button
               variant="outlined"
               color="primary"
               startIcon={<DownloadIcon />}
-              href="/Bulk User Creation Format.xlsx" // Link to the sample document
+              href="/Bulk User Creation Format.xlsx" 
               download
             >
               Download Sample Document
@@ -251,7 +258,7 @@ export default function NewUser() {
           <DialogContentText id="alert-dialog-description">
             {Array.isArray(dialogMessage) 
               ? dialogMessage.map((msg, index) => (
-                <div key={index}>{msg}</div> // Render each message in a separate div
+                <div key={index}>{msg}</div> 
               ))
               : dialogMessage}
           </DialogContentText>
