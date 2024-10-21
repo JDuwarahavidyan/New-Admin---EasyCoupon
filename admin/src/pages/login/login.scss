@@ -13,9 +13,18 @@
             align-items: center;
             justify-content: space-between;
 
-            .logo{
-                height: 50px;
-            }
+            .logoImage {
+                width: 250px; 
+                height: 250x;
+                margin-right: 10px; 
+                vertical-align: middle; 
+                top: 0;
+                bottom: auto;
+                z-index: 1000;
+                margin-top: -100px;
+
+              }
+              
 
             
         }

@@ -38,7 +38,11 @@ export default function Login() {
         <div className="login">
             <div className="top">
                 <div className="wrapper">
-                    <span className="logo">Easy Coupon</span>
+                <img 
+                    src="https://raw.githubusercontent.com/DuwarahavidyanJ/images/refs/heads/main/logocoupon.png" 
+                    alt="Logo" 
+                    className="logoImage"
+                />
                 </div>
             </div>
 
