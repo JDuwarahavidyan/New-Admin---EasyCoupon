@@ -1,15 +1,14 @@
-
-.topbar{
+.topbar {
   width: 100%;
   height: 75px;
   background-color: #e6f1fd;
   position: sticky;
-  top: 0; 
-  z-index: 999; 
+  top: 0;
+  z-index: 999;
   margin-bottom: -20px !important;
 }
 
-.topbarWrapper{
+.topbarWrapper {
   height: 100%;
   padding: 0px 20px;
   display: flex;
@@ -17,36 +16,38 @@
   justify-content: space-between;
 }
 
-.logo{
+.logo {
   font-weight: bold;
   font-size: 30px;
   color: #292e4b;
   cursor: pointer;
+
 }
 
 .logoImage {
-  width: 250px; 
+  width: 250px;
   height: 250x;
-  margin-right: 10px; 
-  vertical-align: middle; 
+  margin-right: 10px;
+  vertical-align: middle;
+
 }
 
 
-.topRight{
+.topRight {
   display: flex;
   align-items: center;
 
 }
 
 
-.topbarIconContainer{
+.topbarIconContainer {
   cursor: pointer;
   position: relative;
   margin-right: 15px;
- 
+
 }
 
-.topAvatar{
+.topAvatar {
   margin-top: -10px;
   cursor: pointer;
 }
@@ -79,3 +80,20 @@
 
 }
 
+
+@media (max-width: 480px) {
+  .logoImage {
+    width: 150px;
+    height: 250x;
+  }
+
+  .topbar {
+    width: 100%;
+    height: 60px;
+
+  }
+
+  .topbarIconContainer {
+    display: none;
+  }
+}

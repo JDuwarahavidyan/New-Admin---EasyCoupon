@@ -38,7 +38,8 @@
   margin-right: 10px !important;
 }
 
-.widgetLgDate, .widgetLgAmount {
+.widgetLgDate,
+.widgetLgAmount {
   font-weight: 300 !important;
 }
 
@@ -79,26 +80,52 @@
 @media screen and (max-width: 1024px) {
   .widgetLgTitle {
     font-size: 20px;
-    width:300px;
+    width: 300px;
   }
 
-  .widgetLgTable {
+
+  .widgetLgTable thead {
+    display: none;
+  }
+
+  .widgetLgTable tbody {
+    display: block;
+  }
+
+  .widgetLgTable tr {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .widgetLgTable td {
+    display: flex;
+    padding: 10px 0;
+    font-size: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .widgetLgTable td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 10px;
     font-size: 14px;
   }
 
-  .widgetLgButton {
-    padding: 4px 6px;
-    font-size: 12px;
+  .widgetLgUser {
+    display: flex !important;
+    align-items: center;
+    font-weight: 600;
+    padding: 5px 5px 5px
   }
 }
 
 @media screen and (max-width: 480px) {
   .widgetLgTable {
-    display: block; 
+    display: block;
   }
 
-  .widgetLg{
-    width:250px;
+  .widgetLg {
+    width: 250px;
   }
 
   .widgetLgTable thead {
@@ -106,23 +133,23 @@
   }
 
   .widgetLgTable tbody {
-    display: block; 
+    display: block;
   }
 
   .widgetLgTable tr {
-    display: block; 
-    margin-bottom: 10px; 
+    display: block;
+    margin-bottom: 10px;
   }
 
   .widgetLgTable td {
-    display: flex; 
+    display: flex;
     padding: 10px 0;
     font-size: 12px;
-    border-bottom: 1px solid #ddd; 
+    border-bottom: 1px solid #ddd;
   }
 
   .widgetLgTable td::before {
-    content: attr(data-label); 
+    content: attr(data-label);
     font-weight: bold;
     margin-right: 10px;
     font-size: 14px;
@@ -132,4 +159,4 @@
     padding: 3px 5px;
     font-size: 10px;
   }
-  }
+}

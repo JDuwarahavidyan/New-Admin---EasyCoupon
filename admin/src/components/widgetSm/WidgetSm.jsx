@@ -53,8 +53,8 @@ export default function WidgetSm() {
         const axiosInstance = axios.create({
           baseURL: process.env.REACT_APP_API_URL,
         }); // Create an axios instance
-      
-      
+
+
         const res = await axiosInstance.get('/users?new=true', {
           headers: {
             authorization: 'Bearer ' + JSON.parse(localStorage.getItem('user')).customToken,
@@ -80,7 +80,7 @@ export default function WidgetSm() {
 
   return (
     <div className="widgetSm">
-      <span className="widgetSmTitle">New Join Members</span>
+      <span className="widgetSmTitle">New Members</span>
       <ul className="widgetSmList">
         {newUsers.map((user) => (
           <li className="widgetSmListItem" key={user.id}>

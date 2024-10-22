@@ -48,12 +48,12 @@
   background-color: rgb(194, 204, 247);
   color: rgb(19, 91, 124);
   font-weight: bold;
-  width: 100px; 
+  width: 100px;
 }
 
 .sidebarListItem:hover {
   background-color: rgb(194, 204, 247);
-  width: 100px; 
+  width: 100px;
 }
 
 .sidebarIcon {
@@ -72,7 +72,7 @@
   width: 200px;
 }
 
-.sidebarListItemlogout{
+.sidebarListItemlogout {
   padding: 5px;
   cursor: pointer;
   display: flex;
@@ -80,4 +80,15 @@
   border-radius: 15px;
   margin-top: 5px;
   color: red;
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+
+    top: 50px;
+    width: 100px !important;
+    transition: width 0.3s ease;
+    z-index: 2;
+    overflow: hidden;
+  }
 }
