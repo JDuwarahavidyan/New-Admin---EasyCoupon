@@ -82,13 +82,48 @@
   color: red;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .sidebar {
 
     top: 50px;
-    width: 100px !important;
+    width: 80px !important;
     transition: width 0.3s ease;
     z-index: 2;
     overflow: hidden;
+  }
+
+  .sidebarListItem {
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    margin-top: 5px;
+    font-size: 0px;
+  }
+
+  .sidebarIcon {
+    margin-left: 5px;
+    font-size: 16px !important;
+  }
+
+  .sidebarTitle {
+    font-size: 10px;
+    color: rgb(19, 91, 124);
+    font-weight: 700;
+    margin-left: 0.5px;
+    margin-right: 10px;
+  }
+
+  .sidebarListItem:hover {
+    background-color: rgb(194, 204, 247);
+    width: 30px;
+  }
+
+  .sidebarListItem.active {
+    background-color: rgb(194, 204, 247);
+    color: rgb(19, 91, 124);
+    font-weight: bold;
+    width: 30px;
   }
 }

@@ -54,7 +54,7 @@
 
 
 /* Responsive styles */
-@media (max-width: 1024px) {
+@media (max-width: 1500px) {
   .userList {
     padding: 10px;
     margin-top: 75px;
@@ -142,7 +142,7 @@
   .userList {
     padding: 5px;
     width: 100%;
-    overflow: auto;
+    /* overflow: auto; */
     -webkit-overflow-scrolling: touch;
     /* Smooth scrolling on iOS */
   }
@@ -151,29 +151,6 @@
     padding-top: 5px;
   }
 
-  /* Container for search and create button */
-  .actionContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5px;
-    margin-bottom: 10px;
-    position: sticky;
-    top: 0;
-    background: white;
-    z-index: 1;
-  }
-
-  .searchInput,
-  .createButton {
-    width: auto !important;
-    margin: 0 !important;
-    flex: 1;
-  }
-
-  .searchInput {
-    margin-right: 8px !important;
-  }
 
   /* Tab styles */
   .MuiTabs-root {
