@@ -1,50 +1,55 @@
 .userList {
-    flex: 6;
-    height: calc(100vh - 75px); /* Subtract topbar height */
-    /* overflow-y: auto; Allow vertical scrolling */
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .userListUser {
-    display: flex;
-    align-items: center;
-  }
-  
-  .userListImg {
-    margin-right: 10px;
-  }
-  
-  .userListEdit{
-      border: none;
-      border-radius: 10px;
-      padding: 5px 10px;
-      background-color: #206892;
-      color: white;
-      cursor: pointer;
-      margin-right: 20px;
-  }
-  
-  .userListDelete{
-      color: rgb(212, 59, 59);
-      cursor: pointer;
-      
-  }
-.searchInput{
-   margin-top: 5px !important;
-   width: 200px !important;
-   height: auto;
-   margin-right: 10px !important;
+  flex: 6;
+  height: calc(100vh - 75px);
+  /* Subtract topbar height */
+  /* overflow-y: auto; Allow vertical scrolling */
+  padding: 20px;
+  box-sizing: border-box;
+  width: 1300px;
 }
 
-.createButton{
+.userListUser {
+  display: flex;
+  align-items: center;
+}
+
+.userListImg {
+  margin-right: 10px;
+}
+
+.userListEdit {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: #206892;
+  color: white;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.userListDelete {
+  color: rgb(212, 59, 59);
+  cursor: pointer;
+
+}
+
+.searchInput {
+  margin-top: 5px !important;
+  width: 200px !important;
+  height: auto;
+  margin-right: 10px !important;
+}
+
+.createButton {
   margin-top: 10px !important;
   margin-right: 10px !important;
 }
 
 .userListEdit:hover {
-  background-color: #3f9ab5; /* Change background to primary color on hover */
-  color: white; /* Change text color to white on hover */
+  background-color: #3f9ab5;
+  /* Change background to primary color on hover */
+  color: white;
+  /* Change text color to white on hover */
 }
 
 
@@ -52,22 +57,29 @@
 @media (max-width: 1024px) {
   .userList {
     padding: 10px;
-    margin-top: 75px; /* Add top margin to account for fixed topbar */
-    height: calc(100vh - 75px); 
+    margin-top: 75px;
+    /* Add top margin to account for fixed topbar */
+    height: calc(100vh - 75px);
     overflow: hidden;
+    width: 1000px;
   }
 
   .MuiDataGrid-root {
-    height: 100%; /* Make the table height relative to its container */
-    max-height: 100%; /* Ensure table stays within bounds */
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
-    overflow-y: auto; /* Enable vertical scrolling for the table content */
+    height: 100%;
+    /* Make the table height relative to its container */
+    max-height: 100%;
+    /* Ensure table stays within bounds */
+    overflow-x: auto;
+    /* Enable horizontal scrolling if needed */
+    overflow-y: auto;
+    /* Enable vertical scrolling for the table content */
   }
 
   .searchInput {
     width: 60% !important;
     margin-top: 10px;
-    margin-bottom: 10px; /* Add space below search input */
+    margin-bottom: 10px;
+    /* Add space below search input */
 
   }
 
@@ -79,47 +91,116 @@
 
   /* Adjust DataGrid for smaller screens */
   .MuiDataGrid-root {
-    height: calc(100vh - 200px); /* Adjust height to fit screen */
+    height: calc(100vh - 200px);
+    /* Adjust height to fit screen */
   }
 }
 
-/* Further adjustments for very small screens */
+@media (max-width: 768px) {
+  .userList {
+    padding: 10px;
+    margin-top: 75px;
+    /* Add top margin to account for fixed topbar */
+    height: calc(100vh - 75px);
+    overflow: hidden;
+    width: 500px;
+  }
+
+  .MuiDataGrid-root {
+    height: 100%;
+    /* Make the table height relative to its container */
+    max-height: 100%;
+    /* Ensure table stays within bounds */
+    overflow-x: auto;
+    /* Enable horizontal scrolling if needed */
+    overflow-y: auto;
+    /* Enable vertical scrolling for the table content */
+  }
+
+  .searchInput {
+    width: 60% !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* Add space below search input */
+
+  }
+
+  .createButton {
+    width: 100%;
+    margin-right: 5px !important;
+    margin-top: 10px;
+  }
+
+  /* Adjust DataGrid for smaller screens */
+  .MuiDataGrid-root {
+    height: calc(100vh - 200px);
+    /* Adjust height to fit screen */
+  }
+}
+
 @media (max-width: 480px) {
   .userList {
     padding: 5px;
-    overflow-y: auto;
-    overflow-x: auto;
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
   }
-  
+
+  .userListControls {
+    padding-top: 5px;
+  }
+
+  /* Container for search and create button */
+  .actionContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    margin-bottom: 10px;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+  }
+
   .searchInput,
   .createButton {
-      width: 50% !important; /* Full width for smaller screens */
-      margin-top: 10px;
-      margin-bottom: 5px 0;
-      
+    width: auto !important;
+    margin: 0 !important;
+    flex: 1;
+  }
+
+  .searchInput {
+    margin-right: 8px !important;
+  }
+
+  /* Tab styles */
+  .MuiTabs-root {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .MuiTabs-flexContainer {
+    display: flex;
+    flex-direction: row !important;
   }
 
   .MuiTab-root {
-    font-size: 10px; /* Even smaller font */
-    min-width: 70px; /* Narrower tabs */
-    padding: 8px 10px; /* Add padding for better touch interaction */
+    font-size: 12px;
+    min-width: 70px;
+    padding: 8px 10px;
   }
 
-  /* Stack tabs vertically for better mobile usability */
-  .MuiTabs-root {
-    flex-direction: column;
-  }
-
-  /* Ensure the tabs don't disappear */
-  .MuiTabs-flexContainer {
-    flex-wrap: nowrap; /* Ensure no wrapping */
-  }
- 
+  /* DataGrid adjustments */
   .MuiDataGrid-root {
-    font-size: 12px; /* Reduce font size for better fit */
+    font-size: 12px;
+    min-width: 100%;
+    overflow: auto !important;
   }
 
-  /* Hide less important columns on very small screens */
+  /* Optional: Hide less important columns */
   .MuiDataGrid-columnHeader[data-field="email"],
   .MuiDataGrid-cell[data-field="email"] {
     display: none;

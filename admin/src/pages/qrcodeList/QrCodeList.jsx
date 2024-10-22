@@ -27,7 +27,7 @@ export default function QrCodeList() {
   }, [dispatch]);
 
   useEffect(() => {
-    fetchQrCodes();  
+    fetchQrCodes();
     const ws = new WebSocket('ws://localhost:8800');
 
     ws.onopen = () => {
@@ -83,7 +83,7 @@ export default function QrCodeList() {
             hour: 'numeric',
             minute: 'numeric',
             second: 'numeric',
-            hour12: true 
+            hour12: true
           });
           return `${formattedDate}, ${formattedTime}`;
         }
@@ -109,7 +109,7 @@ export default function QrCodeList() {
 
     const matchesDateRange = selectedDateRange[0] && selectedDateRange[1]
       ? new Date(qrcode.scannedAt) >= new Date(selectedDateRange[0]) &&
-        new Date(qrcode.scannedAt) <= new Date(selectedDateRange[1])
+      new Date(qrcode.scannedAt) <= new Date(selectedDateRange[1])
       : true;
 
     return matchesRole && matchesSearch && matchesDateRange;
@@ -119,20 +119,7 @@ export default function QrCodeList() {
 
   return (
     <div className="userList">
-      <Box className="header">
-        <Tabs value={roleFilter} onChange={handleTabChange} aria-label="user role filter"
-        variant="scrollable" 
-        scrollButtons="auto" 
-        allowScrollButtonsMobile 
-        TabIndicatorProps={{
-          style: { backgroundColor: '#206892' }, 
-        }}>
-          <Tab label="All" value="all" />
-          <Tab label="Canteen A (Kalderama)" value="canteena" />
-          <Tab label="Canteen B (Hilton)" value="canteenb" />
-        </Tabs>
-        
-        <Box className="container">
+      <Box className="container">
         <Box className="totalCouponsUsed">
           <strong>Total Coupons Used: {totalCouponsUsed}</strong>
         </Box>
@@ -143,7 +130,7 @@ export default function QrCodeList() {
             placeholder="Select the Date Range"
             placement="autoVertical"
             format="yyyy-MM-dd"
-            onClean={() => setSelectedDateRange([null, null])} 
+            onClean={() => setSelectedDateRange([null, null])}
           />
         </Box>
         <Box className="searchBox">
@@ -163,9 +150,20 @@ export default function QrCodeList() {
           />
 
         </Box>
-        </Box>
       </Box>
-
+      <Box className="header">
+        <Tabs value={roleFilter} onChange={handleTabChange} aria-label="user role filter"
+          variant="scrollable"
+          scrollButtons="auto"
+          allowScrollButtonsMobile
+          TabIndicatorProps={{
+            style: { backgroundColor: '#206892' },
+          }}>
+          <Tab label="All" value="all" />
+          <Tab label="Canteen A (Kalderama)" value="canteena" />
+          <Tab label="Canteen B (Hilton)" value="canteenb" />
+        </Tabs>
+      </Box>
       {loading ? (
         <Box className="loadingBox">
           <CircularProgress />
@@ -176,9 +174,9 @@ export default function QrCodeList() {
             rows={filteredQrCodes}
             disableSelectionOnClick
             columns={columns}
-            pageSize={10} 
-            pageSizeOptions={[10, 25, 50, 100]} 
-            pagination 
+            pageSize={10}
+            pageSizeOptions={[10, 25, 50, 100]}
+            pagination
             checkboxSelection
             getRowId={(r) => r.id}
           />

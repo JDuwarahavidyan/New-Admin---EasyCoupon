@@ -180,6 +180,27 @@ export default function UserList() {
 
   return (
     <div className="userList">
+      <Box className="userListControls">
+
+        <TextField
+          variant="outlined"
+          placeholder="Search users..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="searchInput"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
+        /><Link to="/newUser">
+          <Button className="createButton" variant="contained" color="primary">
+            Create
+          </Button>
+        </Link>
+      </Box>
       <Box display="flex" justifyContent="space-between" mb={2}>
         <Tabs value={roleFilter} onChange={handleTabChange} aria-label="user role filter"
           variant="scrollable" // Make the tabs scrollable
@@ -193,29 +214,9 @@ export default function UserList() {
           <Tab label="Canteen" value="canteen" />
           <Tab label="Admin" value="admin" />
         </Tabs>
-
-        <Box className="userListControls">
-    
-    <TextField
-      variant="outlined"
-      placeholder="Search users..."
-      value={searchQuery}
-      onChange={(e) => setSearchQuery(e.target.value)}
-      className="searchInput"
-      InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <SearchIcon />
-          </InputAdornment>
-        ),
-      }}
-    /><Link to="/newUser">
-    <Button className="createButton" variant="contained" color="primary">
-      Create
-    </Button>
-  </Link>
-  </Box>
       </Box>
+
+
 
       {loading ? (
         <Box display="flex" justifyContent="center" alignItems="center" height="100%">
@@ -247,8 +248,8 @@ export default function UserList() {
             {dialogType === 'delete'
               ? "Are you sure you want to delete this user?"
               : dialogType === 'enable'
-              ? "Are you sure you want to enable this user?"
-              : "Are you sure you want to disable this user?"
+                ? "Are you sure you want to enable this user?"
+                : "Are you sure you want to disable this user?"
             }
           </DialogContentText>
         </DialogContent>
@@ -261,8 +262,8 @@ export default function UserList() {
               dialogType === 'delete'
                 ? handleDelete
                 : dialogType === 'enable'
-                ? handleEnable
-                : handleDisable
+                  ? handleEnable
+                  : handleDisable
             }
             color="primary"
             autoFocus
