@@ -9,7 +9,8 @@
 }
 
 .chart {
-  height: 400px;
+  height:49vh;
+  width: 80.5vw;
 }
 
 .loadingContainer {
@@ -17,4 +18,118 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+
+@media (max-width: 1024px)  {
+  .chart {
+    height:52vh;
+    width: 80vw;
+  }
+}
+
+
+@media (max-width: 1750px)  {
+  .chart {
+    height:50vh;
+  }
+}
+
+@media (max-width: 1600px)  {
+  .chart {
+    height:46vh;
+  }
+}
+
+@media (max-width: 1400px)  {
+  .chart {
+    height:42vh;
+  }
+}
+
+@media (max-width: 1250px)  {
+  .chart {
+    height:38vh;
+  }
+}
+
+@media (max-width: 1150px)  {
+  .chart {
+    height:34vh;
+  }
+}
+
+@media (max-width: 970px)  {
+  .chart {
+    height:30vh;
+    width: 77vw;
+  }
+}
+
+
+@media (max-width: 850px)  {
+  .chart {
+    height:25vh;
+    width: 77vw;
+  }
+}
+
+@media (max-width: 770px)  {
+  .chart {
+    height:39vh;
+    width: 75vw;
+  }
+}
+
+@media (max-width: 650px)  {
+  .chart {
+    height:35vh;
+    width: 74vw;
+  }
+}
+
+@media (max-width: 550px)  {
+  .chart {
+    height:30vh;
+    width: 72vw;
+  }
+}
+@media (max-width: 480px)  {
+  .chart {
+    height:28vh;
+    width: 70vw;
+  }
+}
+@media (max-width: 376px)  {
+  .chart {
+    height:25vh;
+    width: 65vw;
+  }
+}
+
+
+@media (max-height: 800px)  {
+  .chart {
+    height: 50vh;
+  }
+}
+
+
+@media (max-height: 720px)  {
+  .chart {
+    height: 55vh;
+  }
+}
+
+@media (max-height: 768px)  {
+  .chart {
+    height: 40vh;
+  }
+}
+
+@media (max-height: 664px)  {
+  .chart {
+    height: 55vh;
+    width: 78vw;
+  }
 }

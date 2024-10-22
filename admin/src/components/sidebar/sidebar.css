@@ -81,3 +81,14 @@
   margin-top: 5px;
   color: red;
 }
+
+@media (max-width: 480px) {
+  .sidebar {
+    
+    top: 50px;
+    width: 100px !important;
+    transition: width 0.3s ease;
+    z-index: 2;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,52 @@
+.container{
+  display: flex; /* margin-top: 10px; */
+  
+
+  
+}
+
+.link{
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    margin-top: 75px; /* Height of the topbar */
+  }
+}
+
+
+
+@mixin laptop {
+@media (min-width: 1380px) {
+  @content;
+}
+}
+
+@mixin tabletPro {
+@media (max-width: 1024px) {
+  @content;
+}
+}
+
+
+@mixin tablet {
+  @media (max-width: 930px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+@media (max-width: 480px) {
+  @content;
+}
+}
+
+@mixin minimobile {
+@media (max-width: 375px) {
+  @content;
+}
+}

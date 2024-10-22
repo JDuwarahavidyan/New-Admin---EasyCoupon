@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 import './index.css';
-import './app.css';
+import './app.scss';
 import reportWebVitals from './reportWebVitals';
 import { AuthContextProvider } from './context/authContext/AuthContext';
 import { QrCodeContextProvider } from './context/qrCodeContext/QrCodeContext';
