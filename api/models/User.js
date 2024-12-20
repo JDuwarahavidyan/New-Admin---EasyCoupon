@@ -12,8 +12,8 @@ class User {
     role,
     studentCount = 30,
     canteenCount = 0,
-    profilePic = null
-    
+    profilePic = null,
+    value = 0,
   }) {
       this.id = id;
       this.email = email;
@@ -26,6 +26,7 @@ class User {
       this.studentCount = studentCount;
       this.canteenCount = canteenCount;
       this.profilePic = profilePic;
+      this.value = value;
   }
 }
 

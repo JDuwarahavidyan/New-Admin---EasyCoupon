@@ -33,3 +33,15 @@ exports.resetStudentCountMonthly = functions.pubsub.schedule(
   });
   console.log("studentCount reset to 30 for all users");
 });
+
+
+exports.resetValueDaily = functions.pubsub.schedule(
+  "every day 00:00").timeZone('Asia/Colombo').onRun(async () => {
+const usersSnapshot = await db.collection("users").get();
+usersSnapshot.forEach(async (doc) => {
+  await doc.ref.update({
+    value: 0,
+  });
+});
+console.log("Value reset to 0 for all users");
+});

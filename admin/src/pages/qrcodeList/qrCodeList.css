@@ -34,9 +34,15 @@
    height: auto;
 }
 
-.createButton{
+
+.downloadButton{
+  margin-top: 10px !important;
   margin-right: 10px !important;
+  padding: 0 5px;
+  font-size: small;
+  min-width: auto;
 }
+
 
 .userListEdit:hover {
   background-color: #3f9ab5; 

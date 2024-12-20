@@ -47,7 +47,8 @@ router.post('/register', async (req, res) => {
             updatedAt: admin.firestore.FieldValue.serverTimestamp(),
             studentCount: 30,
             canteenCount: 0,
-            profilePic: "https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"
+            profilePic: "https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png",
+            value: 0,
         });
 
         await db.collection('users').doc(userRecord.uid).set({
@@ -62,6 +63,7 @@ router.post('/register', async (req, res) => {
             studentCount: newUser.studentCount,
             canteenCount: newUser.canteenCount,
             profilePic: newUser.profilePic,
+            value: newUser.value,
         });
 
         // Send a welcome email with username, password, and app download link
